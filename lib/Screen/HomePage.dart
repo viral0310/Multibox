@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:chips_choice/chips_choice.dart';
 import '../utils.dart';
 
 class HomePage extends StatefulWidget {
@@ -14,16 +13,6 @@ class _HomePageState extends State<HomePage> {
   bool _isChecked = false;
   @override
   Widget build(BuildContext context) {
-    List<String> tags = [];
-    List<String> options = [
-      'Retail',
-      'Wholesale',
-      'Restaurant',
-      'Trader',
-      'Fast Food',
-      'Service',
-      'Other',
-    ];
     var height = MediaQuery.of(context).size.height;
     var width = MediaQuery.of(context).size.width;
     double baseWidth = 390.0000915527;
@@ -216,34 +205,118 @@ class _HomePageState extends State<HomePage> {
                       fontWeight: FontWeight.w500,
                     ),
                   ),
-                  ChipsChoice<String>.multiple(
-                    value: tags,
-                    onChanged: (val) => setState(() => tags = val),
-                    choiceItems: C2Choice.listFrom<String, String>(
-                      source: options,
-                      value: (i, v) => v,
-                      label: (i, v) => v,
-                      tooltip: (i, v) => v,
-                      style: (i, v) {
-                        if (['Other', 'Trader', 'Restaurant'].contains(v)) {
-                          return C2ChipStyle.toned(
-                            backgroundColor: Colors.purple,
-                            borderRadius: const BorderRadius.all(
-                              Radius.circular(5),
-                            ),
-                          );
-                        }
-                        return null;
-                      },
-                    ),
-                    choiceStyle: C2ChipStyle.filled(),
-                    wrapped: true,
-                  ),
+                  CustomChipExample(),
                 ],
               ),
             ),
           ),
         ],
+      ),
+    );
+  }
+}
+
+class CustomChipExample extends StatefulWidget {
+  @override
+  _CustomChipExampleState createState() => _CustomChipExampleState();
+}
+
+class _CustomChipExampleState extends State<CustomChipExample> {
+  List<String> selectedChips = [];
+
+  void _onChipSelected(String chipText) {
+    setState(() {
+      if (selectedChips.contains(chipText)) {
+        selectedChips.remove(chipText);
+      } else {
+        selectedChips.add(chipText);
+      }
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    List<String> availableChips = [
+      'Retail',
+      'Wholesale',
+      'Restaurant',
+      'Trader',
+      'Fast Food',
+      'Service',
+      'Other',
+    ];
+
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Wrap(
+            spacing: 10,
+            alignment: WrapAlignment.start,
+            runSpacing: 10,
+            children: availableChips.map((chipText) {
+              return CustomChip(
+                text: chipText,
+                isSelected: selectedChips.contains(chipText),
+                onTap: () => _onChipSelected(chipText),
+              );
+            }).toList(),
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+class CustomChip extends StatelessWidget {
+  final String text;
+  final bool isSelected;
+  final VoidCallback? onTap;
+  final VoidCallback? onDeleted;
+
+  CustomChip({
+    required this.text,
+    this.isSelected = false,
+    this.onTap,
+    this.onDeleted,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+        decoration: BoxDecoration(
+          color: isSelected ? const Color(0xff5654a2) : Colors.grey.shade300,
+          borderRadius: BorderRadius.circular(16),
+        ),
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Text(
+              text,
+              style: TextStyle(
+                color: isSelected ? Colors.white : Colors.black,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            if (onDeleted != null)
+              const SizedBox(
+                width: 4,
+              ),
+            if (onDeleted != null)
+              GestureDetector(
+                onTap: onDeleted,
+                child: const Icon(
+                  Icons.close,
+                  color: Colors.white,
+                  size: 16,
+                ),
+              ),
+          ],
+        ),
       ),
     );
   }
