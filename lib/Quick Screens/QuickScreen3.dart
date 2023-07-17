@@ -284,7 +284,14 @@ class _QuickScreen3State extends State<QuickScreen3> {
               children: [
                 Expanded(
                   child: RadioListTile(
-                    title: Text("Sell by units"),
+                    title: const Text(
+                      "Sell by units",
+                      style: TextStyle(fontSize: 14),
+                    ),
+                    subtitle: const Text(
+                      "eg 1,2, 100",
+                      style: TextStyle(fontSize: 14),
+                    ),
                     value: 'Option 1',
                     groupValue: selectedOption,
                     onChanged: (v) => _onOptionChanged(v!),
@@ -292,7 +299,14 @@ class _QuickScreen3State extends State<QuickScreen3> {
                 ),
                 Expanded(
                   child: RadioListTile(
-                    title: Text("Sell by fraction"),
+                    title: const Text(
+                      "Sell by fraction",
+                      style: TextStyle(fontSize: 14),
+                    ),
+                    subtitle: const Text(
+                      "eg 0.100kg,0.500kg",
+                      style: TextStyle(fontSize: 14),
+                    ),
                     value: 'Option 2',
                     groupValue: selectedOption,
                     onChanged: (v) => _onOptionChanged(v!),
