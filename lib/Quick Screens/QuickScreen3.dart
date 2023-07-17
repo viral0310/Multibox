@@ -284,6 +284,7 @@ class _QuickScreen3State extends State<QuickScreen3> {
               children: [
                 Expanded(
                   child: RadioListTile(
+                    selectedTileColor: const Color(0xff5654a2),
                     title: const Text(
                       "Sell by units",
                       style: TextStyle(fontSize: 14),
@@ -299,6 +300,7 @@ class _QuickScreen3State extends State<QuickScreen3> {
                 ),
                 Expanded(
                   child: RadioListTile(
+                    selectedTileColor: const Color(0xff5654a2),
                     title: const Text(
                       "Sell by fraction",
                       style: TextStyle(fontSize: 14),
