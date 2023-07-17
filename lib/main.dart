@@ -5,6 +5,7 @@ import 'package:multi_purpose_app/Quick%20Screens/QuickScreen2.dart';
 import 'package:multi_purpose_app/Screen/Login/LoginScreen.dart';
 
 import 'Quick Screens/QuickScreen1.dart';
+import 'Quick Screens/QuickScreen3.dart';
 import 'Screen/Login/RegisterScreen.dart';
 import 'Screen/Login/VerifyScreen.dart';
 import 'Screen/Splashscreen.dart';
@@ -28,6 +29,7 @@ void main() {
         '/Verify': (context) => const VerifyScreen(),
         '/QuickScreen': (context) => const QuickScreen(),
         '/QuickScreen2': (context) => const QuickScreen2(),
+        '/QuickScreen3': (context) => const QuickScreen3(),
       },
     ),
   );
