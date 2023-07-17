@@ -180,7 +180,7 @@ class _VerifyScreenState extends State<VerifyScreen> {
                         child: GestureDetector(
                           onTap: () {
                             Navigator.of(context)
-                                .pushReplacementNamed('/HomePage');
+                                .pushReplacementNamed('/QuickScreen');
                           },
                           child: Container(
                             width: double.infinity,

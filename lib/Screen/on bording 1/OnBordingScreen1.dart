@@ -13,16 +13,16 @@ class OnBordingScreen extends StatefulWidget {
 class _OnBordingScreenState extends State<OnBordingScreen> {
   List onBordingData = [
     {
-      "image": 'assets/images/on 1/on 1.png',
-      "description": 'We Provide high quality products just for you',
+      "image": 'assets/images/on 1/on 1.jpg',
+      "description": 'Easy POS for Store, Cafe, Restaurant & Others',
     },
     {
-      "image": 'assets/images/on 1/on 2.png',
-      "description": 'Your satisfaction is our number one priority',
+      "image": 'assets/images/on 1/on 2.jpg',
+      "description": 'Quick & Easy to Payments & Receipts',
     },
     {
-      "image": 'assets/images/on 1/on 3.png',
-      "description": 'Let’s fulfill your daily need with MultiBox Right Now!',
+      "image": 'assets/images/on 1/on 3.jpg',
+      "description": 'Easy to Manage Stock, Inventory & Customers',
     }
   ];
   PageController pageController = PageController();

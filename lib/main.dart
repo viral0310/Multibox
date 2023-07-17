@@ -1,14 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
+import 'package:multi_purpose_app/Quick%20Screens/QuickScreen2.dart';
 import 'package:multi_purpose_app/Screen/Login/LoginScreen.dart';
 
-import 'Screen/HomePage.dart';
+import 'Quick Screens/QuickScreen1.dart';
 import 'Screen/Login/RegisterScreen.dart';
 import 'Screen/Login/VerifyScreen.dart';
 import 'Screen/Splashscreen.dart';
 import 'Screen/on bording 1/OnBordingScreen1.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
   runApp(
     GetMaterialApp(
       theme: ThemeData(
@@ -22,7 +26,8 @@ void main() {
         '/Register': (context) => const RegisterScreen(),
         '/Login': (context) => const LoginScreen(),
         '/Verify': (context) => const VerifyScreen(),
-        '/HomePage': (context) => const HomePage(),
+        '/QuickScreen': (context) => const QuickScreen(),
+        '/QuickScreen2': (context) => const QuickScreen2(),
       },
     ),
   );
