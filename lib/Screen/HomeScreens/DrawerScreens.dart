@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 
-class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
+class DrawerScreen extends StatefulWidget {
+  const DrawerScreen({super.key});
 
   @override
-  State<HomeScreen> createState() => _HomeScreenState();
+  State<DrawerScreen> createState() => _DrawerScreenState();
 }
 
 bool _isExpanded = false;
 
-class _HomeScreenState extends State<HomeScreen> {
+class _DrawerScreenState extends State<DrawerScreen> {
   @override
   Widget build(BuildContext context) {
     var height = MediaQuery.of(context).size.height;
@@ -17,108 +17,101 @@ class _HomeScreenState extends State<HomeScreen> {
     double baseWidth = 390.0000915527;
     double fem = MediaQuery.of(context).size.width / baseWidth;
     double ffem = fem * 0.97;
-    return Scaffold(
-      drawer: Drawer(
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              Container(
-                width: width,
-                height: height / 6,
-                decoration: BoxDecoration(
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.grey.withOpacity(0.5),
-                      spreadRadius: 2,
-                      blurRadius: 5,
-                      offset: const Offset(0, 3),
-                    ),
+    return Drawer(
+      child: SingleChildScrollView(
+        child: Column(
+          children: [
+            Container(
+              width: width,
+              height: height / 6,
+              decoration: BoxDecoration(
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.grey.withOpacity(0.5),
+                    spreadRadius: 2,
+                    blurRadius: 5,
+                    offset: const Offset(0, 3),
+                  ),
+                ],
+                gradient: const LinearGradient(
+                  begin: Alignment(-1, -1),
+                  end: Alignment(1, 1),
+                  colors: <Color>[
+                    Color(0xffa164a9),
+                    Color(0xffa164a9),
+                    Color(0xff7c54a2),
+                    Color(0xff5654a2)
                   ],
-                  gradient: const LinearGradient(
-                    begin: Alignment(-1, -1),
-                    end: Alignment(1, 1),
-                    colors: <Color>[
-                      Color(0xffa164a9),
-                      Color(0xffa164a9),
-                      Color(0xff7c54a2),
-                      Color(0xff5654a2)
-                    ],
-                    stops: <double>[0, 0, 0.484, 1],
-                  ),
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.only(left: 20, top: 25),
-                  child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Image.asset(
-                        "assets/images/shopping-logo 1.png",
-                        height: 60,
-                      ),
-                      const Text(
-                        ' MultiBox POS',
-                        style: TextStyle(
-                          fontSize: 22,
-                          fontWeight: FontWeight.w600,
-                          color: Colors.white,
-                        ),
-                      ),
-                    ],
-                  ),
+                  stops: <double>[0, 0, 0.484, 1],
                 ),
               ),
-              Container(
-                color: Colors.white,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+              child: Padding(
+                padding: const EdgeInsets.only(left: 20, top: 25),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    DrawerIcons(
-                        "assets/images/Drawer/checkout.png", 'Checkout', ''),
-                    DrawerIcons(
-                        "assets/images/Drawer/analytics.png", 'Dashboard', ''),
-                    DrawerIcons(
-                        "assets/images/Drawer/contact-book.png", 'Contact', ''),
-                    buildPanel(),
-                    const purchases(),
-                    const Items(),
-                    DrawerIcons("assets/images/Drawer/business-report.png",
-                        'Report', ''),
-                    DrawerIcons("assets/images/Drawer/insurance-company.png",
-                        'Companies', ''),
-                    DrawerIcons(
-                        "assets/images/Drawer/settings.png", 'Setting', ''),
-                    DrawerIcons("assets/images/Drawer/group.png", 'Team', ''),
-                    const Divider(),
-                    const Text(
-                      '      Accounts',
-                      textAlign: TextAlign.start,
+                    Image.asset(
+                      "assets/images/shopping-logo 1.png",
+                      height: 60,
                     ),
-                    DrawerIcons(
-                        "assets/images/Drawer/user.png", 'Edit Profile', ''),
-                    DrawerIcons('assets/images/Drawer/shift.png',
-                        'Switch Business', ''),
-                    DrawerIcons(
-                        'assets/images/Drawer/logout.png', 'Logout', ''),
-                    const Divider(),
                     const Text(
-                      '      Communicate',
-                      textAlign: TextAlign.start,
+                      ' MultiBox POS',
+                      style: TextStyle(
+                        fontSize: 22,
+                        fontWeight: FontWeight.w600,
+                        color: Colors.white,
+                      ),
                     ),
-                    DrawerIcons(
-                        "assets/images/Drawer/share.png", 'Share This App', ''),
-                    DrawerIcons("assets/images/Drawer/send-mail.png",
-                        'Contact Support', ''),
-                    DrawerIcons(
-                        "assets/images/Drawer/rating.png", 'Rate Us', ''),
                   ],
                 ),
-              )
-            ],
-          ),
+              ),
+            ),
+            Container(
+              color: Colors.white,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  DrawerIcons(
+                      "assets/images/Drawer/checkout.png", 'Checkout', ''),
+                  DrawerIcons(
+                      "assets/images/Drawer/analytics.png", 'Dashboard', ''),
+                  DrawerIcons(
+                      "assets/images/Drawer/contact-book.png", 'Contact', ''),
+                  buildPanel(),
+                  const purchases(),
+                  const Items(),
+                  DrawerIcons(
+                      "assets/images/Drawer/business-report.png", 'Report', ''),
+                  DrawerIcons("assets/images/Drawer/insurance-company.png",
+                      'Companies', ''),
+                  DrawerIcons(
+                      "assets/images/Drawer/settings.png", 'Setting', ''),
+                  DrawerIcons("assets/images/Drawer/group.png", 'Team', ''),
+                  const Divider(),
+                  const Text(
+                    '      Accounts',
+                    textAlign: TextAlign.start,
+                  ),
+                  DrawerIcons(
+                      "assets/images/Drawer/user.png", 'Edit Profile', ''),
+                  DrawerIcons(
+                      'assets/images/Drawer/shift.png', 'Switch Business', ''),
+                  DrawerIcons('assets/images/Drawer/logout.png', 'Logout', ''),
+                  const Divider(),
+                  const Text(
+                    '      Communicate',
+                    textAlign: TextAlign.start,
+                  ),
+                  DrawerIcons(
+                      "assets/images/Drawer/share.png", 'Share This App', ''),
+                  DrawerIcons("assets/images/Drawer/send-mail.png",
+                      'Contact Support', ''),
+                  DrawerIcons("assets/images/Drawer/rating.png", 'Rate Us', ''),
+                ],
+              ),
+            )
+          ],
         ),
-      ),
-      appBar: AppBar(
-        backgroundColor: const Color(0xff5654a2),
       ),
     );
   }
