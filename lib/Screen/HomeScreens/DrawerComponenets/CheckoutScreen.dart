@@ -470,7 +470,7 @@ void _showCustomWidthDialog(BuildContext context) {
                                   onChanged: (value) {
                                     setState(() {
                                       isSelected = value!;
-                                      isSelected2 = value!;
+                                      isSelected2 = value;
                                     });
                                   },
                                 ),
