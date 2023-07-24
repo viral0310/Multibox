@@ -9,6 +9,16 @@ class CheckoutScreen extends StatefulWidget {
   State<CheckoutScreen> createState() => _CheckoutScreenState();
 }
 
+bool isSelected = false;
+final TextEditingController discountNameEditingController =
+    TextEditingController();
+final TextEditingController discountEditingController = TextEditingController();
+
+Map discountmap = {
+  'name': discountNameEditingController.text,
+  'discount': discountEditingController.text,
+};
+
 class _CheckoutScreenState extends State<CheckoutScreen> {
   @override
   Widget build(BuildContext context) {
@@ -65,7 +75,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                     },
                     child: Container(
                       height: 40,
-                      width: 220,
+                      width: width / 1.6,
                       decoration: BoxDecoration(
                           color: const Color(0xffcdcde5),
                           borderRadius: BorderRadius.circular(10)),
@@ -81,19 +91,24 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                     ),
                   ),
                   const Spacer(),
-                  Container(
-                    height: 40,
-                    width: 110,
-                    decoration: BoxDecoration(
-                        color: const Color(0xffcdcde5),
-                        borderRadius: BorderRadius.circular(10)),
-                    child: const Center(
-                      child: Text(
-                        'Discount',
-                        style: TextStyle(
-                            fontSize: 18,
-                            color: Colors.black,
-                            fontWeight: FontWeight.w500),
+                  GestureDetector(
+                    onTap: () {
+                      _showCustomWidthDialog(context);
+                    },
+                    child: Container(
+                      height: 40,
+                      width: width / 3.3,
+                      decoration: BoxDecoration(
+                          color: const Color(0xffcdcde5),
+                          borderRadius: BorderRadius.circular(10)),
+                      child: const Center(
+                        child: Text(
+                          'Discount',
+                          style: TextStyle(
+                              fontSize: 18,
+                              color: Colors.black,
+                              fontWeight: FontWeight.w500),
+                        ),
                       ),
                     ),
                   ),
@@ -258,6 +273,241 @@ void showAlertDialog(BuildContext context) {
               ),
             ],
           ),
+        ),
+      );
+    },
+  );
+}
+
+void _showCustomWidthDialog(BuildContext context) {
+  showDialog(
+    context: context,
+    builder: (BuildContext context) {
+      return AlertDialog(
+        contentPadding: EdgeInsets.zero,
+        content: StatefulBuilder(
+          builder: (context, setState) {
+            return SizedBox(
+              width: MediaQuery.of(context).size.width,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  const Text(
+                    '  Discount',
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 18,
+                      fontFamily: 'Montserrat',
+                      fontWeight: FontWeight.w400,
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  const Divider(
+                    thickness: 1,
+                    color: Colors.grey,
+                  ),
+                  Row(
+                    children: [
+                      Expanded(
+                        flex: 2,
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: TextField(
+                            controller: discountNameEditingController,
+                            style: const TextStyle(
+                              color: Colors.black,
+                              fontSize: 14,
+                              fontFamily: 'Montserrat',
+                              fontWeight: FontWeight.w400,
+                            ),
+                            decoration: const InputDecoration(
+                              disabledBorder: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                  color: Colors.transparent,
+                                ),
+                              ),
+                              focusedBorder: UnderlineInputBorder(
+                                borderSide:
+                                    BorderSide(color: Colors.grey, width: 2.0),
+                              ),
+                              enabledBorder: UnderlineInputBorder(
+                                borderSide:
+                                    BorderSide(color: Colors.grey, width: 2.0),
+                              ),
+                              hintText: 'Name',
+                            ),
+                          ),
+                        ),
+                      ),
+                      Expanded(
+                        flex: 1,
+                        child: TextField(
+                          controller: discountEditingController,
+                          keyboardType: TextInputType.phone,
+                          style: const TextStyle(
+                            color: Colors.black,
+                            fontSize: 14,
+                            fontFamily: 'Montserrat',
+                            fontWeight: FontWeight.w400,
+                          ),
+                          decoration: const InputDecoration(
+                            disabledBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                color: Colors.transparent,
+                              ),
+                            ),
+                            focusedBorder: UnderlineInputBorder(
+                              borderSide:
+                                  BorderSide(color: Colors.grey, width: 2.0),
+                            ),
+                            enabledBorder: UnderlineInputBorder(
+                              borderSide:
+                                  BorderSide(color: Colors.grey, width: 2.0),
+                            ),
+                            hintText: '0',
+                            suffixIcon: Icon(
+                              Icons.percent_sharp,
+                              color: Color(0xff5654a2),
+                              size: 15,
+                            ),
+                          ),
+                        ),
+                      ),
+                      IconButton(
+                        onPressed: () {},
+                        icon: const Icon(
+                          Icons.add_circle,
+                          color: Color(0xff5654a2),
+                        ),
+                      ),
+                    ],
+                  ),
+                  Container(
+                    width: MediaQuery.of(context).size.width,
+                    decoration: const ShapeDecoration(
+                      shape: RoundedRectangleBorder(
+                        side: BorderSide(
+                          width: 0.50,
+                          strokeAlign: BorderSide.strokeAlignCenter,
+                          color: Color(0xFF979797),
+                        ),
+                      ),
+                    ),
+                  ),
+                  Container(
+                    height: 15,
+                    width: MediaQuery.of(context).size.width,
+                    decoration: const BoxDecoration(
+                      color: Color(0xffe6e6e6),
+                    ),
+                  ),
+                  Container(
+                    width: MediaQuery.of(context).size.width,
+                    decoration: const ShapeDecoration(
+                      shape: RoundedRectangleBorder(
+                        side: BorderSide(
+                          width: 0.50,
+                          strokeAlign: BorderSide.strokeAlignCenter,
+                          color: Color(0xFF979797),
+                        ),
+                      ),
+                    ),
+                  ),
+                  ListView.builder(
+                    itemCount: discountmap.length,
+                    itemBuilder: (BuildContext context, int index) {
+                      String name = discountmap.keys.elementAt(index);
+                      String discount = discountmap.values.elementAt(index);
+                      return ListTile(
+                        leading: Checkbox(
+                          fillColor: MaterialStateProperty.all(
+                            const Color(0xff5654a2),
+                          ),
+                          value: isSelected,
+                          onChanged: (value) {
+                            setState(() {
+                              isSelected = value!;
+                            });
+                          },
+                        ),
+                        title: Text(name),
+                        subtitle: Text(discount),
+                      );
+                    },
+                  ),
+                  // SizedBox(
+                  //   height: MediaQuery.of(context).size.height / 3.35,
+                  //   width: MediaQuery.of(context).size.width,
+                  // ),
+                  const Divider(thickness: 1),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Row(
+                      children: [
+                        SizedBox(
+                          height: 35,
+                          child: Row(
+                            children: [
+                              SizedBox(
+                                width: 30,
+                                child: Checkbox(
+                                  fillColor: MaterialStateProperty.all(
+                                    const Color(0xff5654a2),
+                                  ),
+                                  value: isSelected,
+                                  onChanged: (value) {
+                                    setState(() {
+                                      isSelected = value!;
+                                    });
+                                  },
+                                ),
+                              ),
+                              const SizedBox(
+                                width: 100,
+                                child: Text(
+                                  'Select All',
+                                  style: TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 14,
+                                    fontFamily: 'Montserrat',
+                                    fontWeight: FontWeight.w400,
+                                  ),
+                                ),
+                              ),
+                              TextButton(
+                                onPressed: () {},
+                                child: const Text(
+                                  'Cancel',
+                                  style: TextStyle(
+                                    color: Color(0xff5654a2),
+                                  ),
+                                ),
+                              ),
+                              TextButton(
+                                onPressed: () {},
+                                child: const Text(
+                                  'Done',
+                                  style: TextStyle(
+                                    color: Color(0xff5654a2),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            );
+          },
         ),
       );
     },
