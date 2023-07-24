@@ -10,14 +10,18 @@ class CheckoutScreen extends StatefulWidget {
 }
 
 bool isSelected = false;
+bool isSelected2 = false;
+
 final TextEditingController discountNameEditingController =
     TextEditingController();
 final TextEditingController discountEditingController = TextEditingController();
 
-Map discountmap = {
-  'name': discountNameEditingController.text,
-  'discount': discountEditingController.text,
-};
+List<Map<String, dynamic>> discountmap = [
+  {
+    'name': 'discountName',
+    'discount': discountEditingController.text,
+  },
+];
 
 class _CheckoutScreenState extends State<CheckoutScreen> {
   @override
@@ -419,27 +423,29 @@ void _showCustomWidthDialog(BuildContext context) {
                       ),
                     ),
                   ),
-                  ListView.builder(
-                    itemCount: discountmap.length,
-                    itemBuilder: (BuildContext context, int index) {
-                      String name = discountmap.keys.elementAt(index);
-                      String discount = discountmap.values.elementAt(index);
-                      return ListTile(
-                        leading: Checkbox(
-                          fillColor: MaterialStateProperty.all(
-                            const Color(0xff5654a2),
+                  Expanded(
+                    child: ListView.builder(
+                      itemCount: discountmap.length,
+                      itemBuilder: (BuildContext context, int index) {
+                        String productName = discountmap[index]['name'];
+                        String productPrice = discountmap[index]['discount'];
+
+                        return ListTile(
+                          leading: Checkbox(
+                            fillColor: MaterialStateProperty.all(
+                              const Color(0xff5654a2),
+                            ),
+                            value: isSelected2,
+                            onChanged: (value) {
+                              setState(() {
+                                isSelected2 = value!;
+                              });
+                            },
                           ),
-                          value: isSelected,
-                          onChanged: (value) {
-                            setState(() {
-                              isSelected = value!;
-                            });
-                          },
-                        ),
-                        title: Text(name),
-                        subtitle: Text(discount),
-                      );
-                    },
+                          title: Text(productName),
+                        );
+                      },
+                    ),
                   ),
                   // SizedBox(
                   //   height: MediaQuery.of(context).size.height / 3.35,
@@ -464,6 +470,7 @@ void _showCustomWidthDialog(BuildContext context) {
                                   onChanged: (value) {
                                     setState(() {
                                       isSelected = value!;
+                                      isSelected2 = value!;
                                     });
                                   },
                                 ),
