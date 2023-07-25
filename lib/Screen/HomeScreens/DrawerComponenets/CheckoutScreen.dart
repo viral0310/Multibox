@@ -9,6 +9,7 @@ class CheckoutScreen extends StatefulWidget {
   State<CheckoutScreen> createState() => _CheckoutScreenState();
 }
 
+int store = 0;
 bool isSelected = false;
 bool isSelected2 = false;
 
@@ -19,10 +20,6 @@ final TextEditingController discountEditingController = TextEditingController();
 List<Map<String, dynamic>> discountmap = [];
 
 class _CheckoutScreenState extends State<CheckoutScreen> {
-  void add() {
-    discountmap.add({'name': '', 'discount': ''});
-  }
-
   @override
   Widget build(BuildContext context) {
     var height = MediaQuery.of(context).size.height;
@@ -383,7 +380,17 @@ void _showCustomWidthDialog(BuildContext context) {
                         ),
                       ),
                       IconButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          setState(() {
+                            discountmap.add({
+                              'name': discountNameEditingController.text,
+                              'discount': discountEditingController.text,
+                              'Checkbox': false,
+                            });
+                            discountNameEditingController.text = '';
+                            discountEditingController.text = '';
+                          });
+                        },
                         icon: const Icon(
                           Icons.add_circle,
                           color: Color(0xff5654a2),
@@ -426,30 +433,35 @@ void _showCustomWidthDialog(BuildContext context) {
                     child: ListView.builder(
                       itemCount: discountmap.length,
                       itemBuilder: (BuildContext context, int index) {
-                        String productName = discountmap[index]['name'];
-                        String productPrice = discountmap[index]['discount'];
-
                         return ListTile(
                           leading: Checkbox(
                             fillColor: MaterialStateProperty.all(
                               const Color(0xff5654a2),
                             ),
-                            value: isSelected2,
+                            value: discountmap[index]['Checkbox'],
                             onChanged: (value) {
                               setState(() {
-                                isSelected2 = value!;
+                                discountmap[index]['Checkbox'] = value!;
                               });
                             },
                           ),
                           title: Text(discountmap[index]['name']),
+                          trailing: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Text(discountmap[index]['discount']),
+                              const Text('.00%'),
+                              IconButton(
+                                onPressed: () {},
+                                icon: const Icon(Icons.edit),
+                                padding: EdgeInsets.zero,
+                              )
+                            ],
+                          ),
                         );
                       },
                     ),
                   ),
-                  // SizedBox(
-                  //   height: MediaQuery.of(context).size.height / 3.35,
-                  //   width: MediaQuery.of(context).size.width,
-                  // ),
                   const Divider(thickness: 1),
                   Padding(
                     padding: const EdgeInsets.all(8.0),
@@ -467,9 +479,19 @@ void _showCustomWidthDialog(BuildContext context) {
                                   ),
                                   value: isSelected,
                                   onChanged: (value) {
+                                    for (var element in discountmap) {
+                                      if (!isSelected) {
+                                        if (!element['Checkbox']) {
+                                          element['Checkbox'] = true;
+                                        }
+                                      } else {
+                                        if (element['Checkbox']) {
+                                          element['Checkbox'] = false;
+                                        }
+                                      }
+                                    }
                                     setState(() {
                                       isSelected = value!;
-                                      isSelected2 = value;
                                     });
                                   },
                                 ),
