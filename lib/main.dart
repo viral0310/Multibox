@@ -6,7 +6,9 @@ import 'package:multi_purpose_app/Screen/Login/LoginScreen.dart';
 
 import 'Quick Screens/QuickScreen1.dart';
 import 'Screen/HomeScreens/DrawerComponenets/CheckoutScreen.dart';
+import 'Screen/HomeScreens/DrawerComponenets/DashboardScreen.dart';
 import 'Screen/HomeScreens/DrawerScreens.dart';
+import 'Screen/HomeScreens/paymentSetupScreen.dart';
 import 'Screen/Login/RegisterScreen.dart';
 import 'Screen/Login/VerifyScreen.dart';
 import 'Screen/Splashscreen.dart';
@@ -32,6 +34,8 @@ void main() {
         '/QuickScreen2': (context) => const QuickScreen2(),
         '/DrawerScreen': (context) => const DrawerScreen(),
         '/CheckoutScreen': (context) => const CheckoutScreen(),
+        '/DashboardScreen': (context) => const DashboardScreen(),
+        '/SetUpScreen': (context) => const SetUpScreen(),
       },
     ),
   );

@@ -16,14 +16,13 @@ final TextEditingController discountNameEditingController =
     TextEditingController();
 final TextEditingController discountEditingController = TextEditingController();
 
-List<Map<String, dynamic>> discountmap = [
-  {
-    'name': 'discountName',
-    'discount': discountEditingController.text,
-  },
-];
+List<Map<String, dynamic>> discountmap = [];
 
 class _CheckoutScreenState extends State<CheckoutScreen> {
+  void add() {
+    discountmap.add({'name': '', 'discount': ''});
+  }
+
   @override
   Widget build(BuildContext context) {
     var height = MediaQuery.of(context).size.height;
@@ -442,7 +441,7 @@ void _showCustomWidthDialog(BuildContext context) {
                               });
                             },
                           ),
-                          title: Text(productName),
+                          title: Text(discountmap[index]['name']),
                         );
                       },
                     ),
