@@ -11,7 +11,6 @@ class CheckoutScreen extends StatefulWidget {
 
 int store = 0;
 bool isSelected = false;
-bool isSelected2 = false;
 
 final TextEditingController discountNameEditingController =
     TextEditingController();

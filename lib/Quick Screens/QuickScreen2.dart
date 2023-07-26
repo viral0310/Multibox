@@ -322,7 +322,7 @@ class _QuickScreen2State extends State<QuickScreen2> {
                                 borderRadius: BorderRadius.circular(5))),
                         onPressed: () {
                           Navigator.of(context)
-                              .pushReplacementNamed('/CheckoutScreen');
+                              .pushReplacementNamed('/BottomScreen');
                         },
                         child: const Text('Continue'),
                       ),

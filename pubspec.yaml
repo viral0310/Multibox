@@ -71,6 +71,8 @@ flutter:
     - assets/images/
     - assets/images/on 1/
     - assets/images/Drawer/
+    - assets/images/PaymentIcon/
+    - assets/images/bottom/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
