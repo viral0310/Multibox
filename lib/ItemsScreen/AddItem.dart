@@ -7,6 +7,7 @@ class AddItemScreen extends StatefulWidget {
   State<AddItemScreen> createState() => _AddItemScreenState();
 }
 
+String category1 = '';
 String Sellvalue = "Sell By Unit";
 bool selcted2 = false;
 
@@ -18,16 +19,15 @@ class _AddItemScreenState extends State<AddItemScreen> {
       TextEditingController();
 
   bool _isButtonEnabled = false;
-  bool _isButton2Enabled = false;
   bool _isButton4Enabled = false;
 
+  bool category = false;
   bool _isButton3Enabled = true;
 
   @override
   void initState() {
     super.initState();
     itemEditingController.addListener(_updateButtonStatus);
-    categoryEditingController.addListener(_updateButton2Status);
     sellingPriceTab1EditingController.addListener(_updateButton4Status);
   }
 
@@ -43,12 +43,6 @@ class _AddItemScreenState extends State<AddItemScreen> {
   void _updateButtonStatus() {
     setState(() {
       _isButtonEnabled = itemEditingController.text.isNotEmpty;
-    });
-  }
-
-  void _updateButton2Status() {
-    setState(() {
-      _isButton2Enabled = categoryEditingController.text.isNotEmpty;
     });
   }
 
@@ -187,7 +181,7 @@ class _AddItemScreenState extends State<AddItemScreen> {
                       borderSide: BorderSide(color: Colors.transparent),
                     ),
                     floatingLabelBehavior: FloatingLabelBehavior.always,
-                    contentPadding: EdgeInsets.only(top: 10, bottom: 10),
+                    contentPadding: const EdgeInsets.only(top: 10, bottom: 10),
                     label: const Text(
                       'Item Name',
                       style: TextStyle(
@@ -228,6 +222,69 @@ class _AddItemScreenState extends State<AddItemScreen> {
                     spreadRadius: 2,
                   ),
                 ],
+              ),
+              child: InkWell(
+                onTap: () {
+                  _openBottomSheet2(context);
+                },
+                child: Container(
+                  padding: const EdgeInsets.only(right: 16),
+                  child: Row(
+                    children: [
+                      Checkbox(
+                        shape: const CircleBorder(),
+                        fillColor: MaterialStateProperty.all(
+                          const Color(0xff5654a2),
+                        ),
+                        value: category,
+                        onChanged: (value) {},
+                      ),
+                      Expanded(
+                        flex: 1,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            const SizedBox(
+                              height: 5,
+                            ),
+                            const Text(
+                              'Category',
+                              style: TextStyle(
+                                fontSize: 12,
+                                color: Colors.grey,
+                              ),
+                            ),
+                            const SizedBox(
+                              height: 5,
+                            ),
+                            Row(
+                              children: [
+                                Container(
+                                  height: 25,
+                                  width: 25,
+                                  decoration: const BoxDecoration(
+                                    borderRadius: BorderRadius.all(
+                                      Radius.circular(3),
+                                    ),
+                                    color: Colors.blue,
+                                  ),
+                                ),
+                                const SizedBox(
+                                  width: 3,
+                                ),
+                                Text(
+                                  category1,
+                                  style: const TextStyle(fontSize: 16),
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                      ),
+                      const Icon(Icons.arrow_drop_down),
+                    ],
+                  ),
+                ),
               ),
             ),
             const SizedBox(
@@ -344,7 +401,7 @@ class _AddItemScreenState extends State<AddItemScreen> {
                               floatingLabelBehavior:
                                   FloatingLabelBehavior.always,
                               contentPadding:
-                                  EdgeInsets.only(top: 10, bottom: 10),
+                                  const EdgeInsets.only(top: 10, bottom: 10),
                               label: const Text(
                                 'Selling Price',
                                 style: TextStyle(
@@ -423,6 +480,184 @@ class _AddItemScreenState extends State<AddItemScreen> {
           ],
         ),
       ),
+    );
+  }
+
+  void _openBottomSheet2(BuildContext context) {
+    showModalBottomSheet(
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(20),
+          topRight: Radius.circular(20),
+        ),
+      ),
+      context: context,
+      builder: (BuildContext context) {
+        return Column(
+          children: [
+            Container(
+              width: MediaQuery.of(context).size.width,
+              height: MediaQuery.of(context).size.height / 14,
+              color: Colors.white,
+              child: Row(
+                children: [
+                  IconButton(
+                    onPressed: () {
+                      Navigator.of(context).pop();
+                    },
+                    icon: Image.asset(
+                      'assets/images/close.png',
+                      width: 18,
+                      height: 18,
+                      color: const Color(0xff5654a2),
+                    ),
+                  ),
+                  const Padding(
+                    padding: EdgeInsets.only(left: 58),
+                    child: Text(
+                      'SELECT CATEGORY',
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.w600,
+                        color: Color(0xff5654a2),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 15, right: 15, top: 5),
+              child: SizedBox(
+                width: MediaQuery.of(context).size.width,
+                height: MediaQuery.of(context).size.height / 18,
+                child: ElevatedButton(
+                  style: const ButtonStyle(
+                    backgroundColor: MaterialStatePropertyAll(
+                      Color(0xff5654a2),
+                    ),
+                  ),
+                  onPressed: () {
+                    Navigator.of(context).pushNamed('/CategoryScreen');
+                  },
+                  child: const Text(
+                    'ADD NEW CATEGORY',
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w600,
+                      color: Colors.white,
+                    ),
+                  ),
+                ),
+              ),
+            ),
+            Row(
+              children: [
+                Expanded(
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: 8, top: 8, right: 4),
+                    child: GestureDetector(
+                      onTap: () {
+                        setState(() {
+                          category = true;
+                          category1 = 'PAN';
+                        });
+                        Navigator.of(context).pop();
+                      },
+                      child: Container(
+                        height: MediaQuery.of(context).size.height / 7,
+                        width: MediaQuery.of(context).size.width,
+                        decoration: BoxDecoration(
+                          borderRadius:
+                              const BorderRadius.all(Radius.circular(5)),
+                          color: Colors.white,
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.black.withOpacity(0.2),
+                              offset: const Offset(0, 2),
+                              blurRadius: 4,
+                              spreadRadius: 1,
+                            ),
+                          ],
+                        ),
+                        child: const Column(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            CircleAvatar(
+                              radius: 30,
+                            ),
+                            SizedBox(
+                              height: 18,
+                            ),
+                            Text(
+                              'PAN',
+                              style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 14,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+                Expanded(
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: 4, top: 8, right: 8),
+                    child: GestureDetector(
+                      onTap: () {
+                        setState(() {
+                          category = true;
+                          category1 = 'EGG';
+                        });
+                        Navigator.of(context).pop();
+                      },
+                      child: Container(
+                        height: MediaQuery.of(context).size.height / 7,
+                        width: MediaQuery.of(context).size.width,
+                        decoration: BoxDecoration(
+                          borderRadius:
+                              const BorderRadius.all(Radius.circular(5)),
+                          color: Colors.white,
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.black.withOpacity(0.2),
+                              offset: const Offset(0, 2),
+                              blurRadius: 4,
+                              spreadRadius: 1,
+                            ),
+                          ],
+                        ),
+                        child: const Column(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            CircleAvatar(
+                              radius: 30,
+                            ),
+                            SizedBox(
+                              height: 18,
+                            ),
+                            Text(
+                              'EGG',
+                              style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 14,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ],
+        );
+      },
     );
   }
 }
@@ -523,7 +758,7 @@ class _CustomDropdownState extends State<CustomDropdown> {
         _openBottomSheet(context);
       },
       child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+        padding: const EdgeInsets.only(left: 4, right: 12),
         child: Row(
           children: [
             Expanded(
@@ -563,7 +798,7 @@ class _CustomDropdownState extends State<CustomDropdown> {
                       borderSide: BorderSide(color: Colors.transparent),
                     ),
                     floatingLabelBehavior: FloatingLabelBehavior.always,
-                    contentPadding: EdgeInsets.only(top: 10, bottom: 10),
+                    contentPadding: const EdgeInsets.only(top: 10, bottom: 10),
                     hintText: "Kg",
                     hintStyle:
                         const TextStyle(fontSize: 18, color: Colors.grey),
@@ -588,28 +823,18 @@ class _CustomDropdownState extends State<CustomDropdown> {
     showModalBottomSheet(
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.only(
-          topLeft: Radius.circular(50),
-          topRight: Radius.circular(50),
+          topLeft: Radius.circular(20),
+          topRight: Radius.circular(20),
         ),
       ),
       context: context,
       builder: (BuildContext context) {
         return Container(
           height: MediaQuery.of(context).size.height / 4,
-          decoration: const BoxDecoration(
-              gradient: LinearGradient(
-                begin: Alignment(-1, -1),
-                end: Alignment(1, 1),
-                colors: <Color>[
-                  Color(0xffa164a9),
-                  Color(0xffa164a9),
-                  Color(0xff7c54a2),
-                  Color(0xff5654a2)
-                ],
-                stops: <double>[0, 0, 0.484, 1],
-              ),
-              borderRadius: BorderRadius.only(
-                  topRight: Radius.circular(50), topLeft: Radius.circular(50))),
+          decoration: BoxDecoration(
+              color: Colors.grey.shade100,
+              borderRadius: const BorderRadius.only(
+                  topRight: Radius.circular(20), topLeft: Radius.circular(20))),
           padding: const EdgeInsets.all(16.0),
           child: Column(
             children: [
@@ -631,6 +856,8 @@ class _CustomDropdownState extends State<CustomDropdown> {
                           height: MediaQuery.of(context).size.height / 6,
                           width: MediaQuery.of(context).size.width,
                           decoration: BoxDecoration(
+                            borderRadius:
+                                const BorderRadius.all(Radius.circular(15)),
                             color: Colors.white,
                             boxShadow: [
                               BoxShadow(
@@ -688,6 +915,8 @@ class _CustomDropdownState extends State<CustomDropdown> {
                           height: MediaQuery.of(context).size.height / 6,
                           width: MediaQuery.of(context).size.width,
                           decoration: BoxDecoration(
+                            borderRadius:
+                                const BorderRadius.all(Radius.circular(15)),
                             color: Colors.white,
                             boxShadow: [
                               BoxShadow(

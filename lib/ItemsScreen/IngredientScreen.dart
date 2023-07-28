@@ -142,7 +142,8 @@ class _IngredientScreenState extends State<IngredientScreen> {
                     ),
                     decoration: InputDecoration(
                       enabledBorder: const OutlineInputBorder(
-                          borderSide: BorderSide(color: Colors.transparent)),
+                        borderSide: BorderSide(color: Colors.transparent),
+                      ),
                       disabledBorder: const OutlineInputBorder(
                         borderSide: BorderSide(
                           color: Colors.transparent,

@@ -42,6 +42,8 @@ class _MoreScreenState extends State<MoreScreen> {
                         height: MediaQuery.of(context).size.height / 6,
                         width: MediaQuery.of(context).size.width,
                         decoration: BoxDecoration(
+                          borderRadius:
+                              const BorderRadius.all(Radius.circular(5)),
                           color: Colors.white,
                           boxShadow: [
                             BoxShadow(
@@ -96,6 +98,8 @@ class _MoreScreenState extends State<MoreScreen> {
                         height: MediaQuery.of(context).size.height / 6,
                         width: MediaQuery.of(context).size.width,
                         decoration: BoxDecoration(
+                          borderRadius:
+                              const BorderRadius.all(Radius.circular(5)),
                           color: Colors.white,
                           boxShadow: [
                             BoxShadow(
@@ -147,6 +151,8 @@ class _MoreScreenState extends State<MoreScreen> {
                         height: MediaQuery.of(context).size.height / 6,
                         width: MediaQuery.of(context).size.width,
                         decoration: BoxDecoration(
+                          borderRadius:
+                              const BorderRadius.all(Radius.circular(5)),
                           color: Colors.white,
                           boxShadow: [
                             BoxShadow(
@@ -194,6 +200,8 @@ class _MoreScreenState extends State<MoreScreen> {
                         height: MediaQuery.of(context).size.height / 6,
                         width: MediaQuery.of(context).size.width,
                         decoration: BoxDecoration(
+                          borderRadius:
+                              const BorderRadius.all(Radius.circular(5)),
                           color: Colors.white,
                           boxShadow: [
                             BoxShadow(
@@ -245,6 +253,8 @@ class _MoreScreenState extends State<MoreScreen> {
                         height: MediaQuery.of(context).size.height / 6,
                         width: MediaQuery.of(context).size.width,
                         decoration: BoxDecoration(
+                          borderRadius:
+                              const BorderRadius.all(Radius.circular(5)),
                           color: Colors.white,
                           boxShadow: [
                             BoxShadow(
@@ -292,6 +302,8 @@ class _MoreScreenState extends State<MoreScreen> {
                         height: MediaQuery.of(context).size.height / 6,
                         width: MediaQuery.of(context).size.width,
                         decoration: BoxDecoration(
+                          borderRadius:
+                              const BorderRadius.all(Radius.circular(5)),
                           color: Colors.white,
                           boxShadow: [
                             BoxShadow(
@@ -350,6 +362,8 @@ class _MoreScreenState extends State<MoreScreen> {
                         height: MediaQuery.of(context).size.height / 6,
                         width: MediaQuery.of(context).size.width,
                         decoration: BoxDecoration(
+                          borderRadius:
+                              const BorderRadius.all(Radius.circular(5)),
                           color: Colors.white,
                           boxShadow: [
                             BoxShadow(
@@ -397,6 +411,8 @@ class _MoreScreenState extends State<MoreScreen> {
                         height: MediaQuery.of(context).size.height / 6,
                         width: MediaQuery.of(context).size.width,
                         decoration: BoxDecoration(
+                          borderRadius:
+                              const BorderRadius.all(Radius.circular(5)),
                           color: Colors.white,
                           boxShadow: [
                             BoxShadow(
@@ -448,6 +464,8 @@ class _MoreScreenState extends State<MoreScreen> {
                         height: MediaQuery.of(context).size.height / 6,
                         width: MediaQuery.of(context).size.width,
                         decoration: BoxDecoration(
+                          borderRadius:
+                              const BorderRadius.all(Radius.circular(5)),
                           color: Colors.white,
                           boxShadow: [
                             BoxShadow(
@@ -495,6 +513,8 @@ class _MoreScreenState extends State<MoreScreen> {
                         height: MediaQuery.of(context).size.height / 6,
                         width: MediaQuery.of(context).size.width,
                         decoration: BoxDecoration(
+                          borderRadius:
+                              const BorderRadius.all(Radius.circular(5)),
                           color: Colors.white,
                           boxShadow: [
                             BoxShadow(
@@ -546,6 +566,8 @@ class _MoreScreenState extends State<MoreScreen> {
                         height: MediaQuery.of(context).size.height / 6,
                         width: MediaQuery.of(context).size.width,
                         decoration: BoxDecoration(
+                          borderRadius:
+                              const BorderRadius.all(Radius.circular(5)),
                           color: Colors.white,
                           boxShadow: [
                             BoxShadow(
@@ -600,6 +622,8 @@ class _MoreScreenState extends State<MoreScreen> {
                         height: MediaQuery.of(context).size.height / 6,
                         width: MediaQuery.of(context).size.width,
                         decoration: BoxDecoration(
+                          borderRadius:
+                              const BorderRadius.all(Radius.circular(5)),
                           color: Colors.white,
                           boxShadow: [
                             BoxShadow(

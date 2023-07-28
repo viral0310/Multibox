@@ -12,12 +12,16 @@ final TextEditingController modifierEditingController = TextEditingController();
 
 class _ModifierScreenState extends State<ModifierScreen> {
   List<TextEditingController> textControllers = [];
+  List<TextEditingController> text2Controllers = [];
+
   int textFieldCount = 1;
+  int text2FieldCount = 1;
 
   @override
   void initState() {
     super.initState();
     textControllers.add(TextEditingController());
+    text2Controllers.add(TextEditingController());
   }
 
   @override
@@ -151,67 +155,99 @@ class _ModifierScreenState extends State<ModifierScreen> {
             height: 8,
           ),
           Expanded(
-            child: ListView.builder(
-              itemCount: textFieldCount,
-              itemBuilder: (context, index) {
-                return Padding(
-                  padding:
-                      const EdgeInsets.only(left: 10, right: 10, bottom: 10),
-                  child: Container(
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.grey.withOpacity(0.2),
-                          offset: const Offset(0, 2),
-                          blurRadius: 4,
-                          spreadRadius: 2,
-                        ),
-                      ],
-                    ),
-                    width: width,
-                    height: height / 14,
-                    child: ListTile(
-                      title: Padding(
-                        padding: const EdgeInsets.only(
-                            left: 2, right: 2, bottom: 10),
-                        child: Row(
-                          children: [
-                            Expanded(
-                              child: TextFormField(
-                                controller: textControllers[index],
-                                decoration: const InputDecoration(
-                                  hintText: 'Name',
-                                ),
-                              ),
-                            ),
-                            Expanded(
-                              child: Padding(
-                                padding: const EdgeInsets.only(left: 10),
-                                child: TextFormField(
-                                  controller: textControllers[index],
-                                  decoration: const InputDecoration(
-                                    hintText: 'INR0.00',
+            child: Row(
+              children: [
+                Expanded(
+                  child: ListView.builder(
+                    itemCount: textFieldCount,
+                    itemBuilder: (context, index) {
+                      return Padding(
+                        padding: const EdgeInsets.only(left: 10, bottom: 10),
+                        child: Container(
+                          decoration: const BoxDecoration(
+                            color: Colors.white,
+                          ),
+                          width: width,
+                          height: height / 14,
+                          child: ListTile(
+                            title: Padding(
+                              padding: const EdgeInsets.only(
+                                  left: 2, right: 2, bottom: 10),
+                              child: Row(
+                                children: [
+                                  Expanded(
+                                    child: TextFormField(
+                                      controller: textControllers[index],
+                                      decoration: const InputDecoration(
+                                        hintText: 'Name',
+                                      ),
+                                    ),
                                   ),
-                                ),
+                                ],
                               ),
                             ),
-                            IconButton(
-                              onPressed: () {},
-                              icon: Image.asset(
-                                'assets/images/close.png',
-                                color: Colors.red,
-                                width: 20,
-                                height: 20,
-                              ),
-                            ),
-                          ],
+                          ),
                         ),
-                      ),
-                    ),
+                      );
+                    },
                   ),
-                );
-              },
+                ),
+                Expanded(
+                  child: ListView.builder(
+                    itemCount: text2FieldCount,
+                    itemBuilder: (context, index) {
+                      return Padding(
+                        padding: const EdgeInsets.only(right: 10, bottom: 10),
+                        child: Container(
+                          decoration: const BoxDecoration(
+                            color: Colors.white,
+                          ),
+                          width: width,
+                          height: height / 14,
+                          child: ListTile(
+                            title: Padding(
+                              padding: const EdgeInsets.only(
+                                  left: 2, right: 2, bottom: 10),
+                              child: Row(
+                                children: [
+                                  Expanded(
+                                    child: TextFormField(
+                                      controller: text2Controllers[index],
+                                      decoration: const InputDecoration(
+                                        hintText: 'INR0.00',
+                                      ),
+                                    ),
+                                  ),
+                                  IconButton(
+                                    onPressed: () {
+                                      setState(() {
+                                        textFieldCount--;
+                                        textControllers.remove(
+                                          TextEditingController(),
+                                        );
+                                        text2FieldCount--;
+                                        text2Controllers.remove(
+                                          TextEditingController(),
+                                        );
+                                      });
+                                    },
+                                    icon: Image.asset(
+                                      'assets/images/close.png',
+                                      color: Colors.red,
+                                      width: 20,
+                                      height: 20,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ),
+                      );
+                    },
+                  ),
+                ),
+              ],
             ),
           ),
           const SizedBox(
@@ -221,7 +257,13 @@ class _ModifierScreenState extends State<ModifierScreen> {
             onPressed: () {
               setState(() {
                 textFieldCount++;
-                textControllers.add(TextEditingController());
+                textControllers.add(
+                  TextEditingController(),
+                );
+                text2FieldCount++;
+                text2Controllers.add(
+                  TextEditingController(),
+                );
               });
             },
             icon: const Icon(

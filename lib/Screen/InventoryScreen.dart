@@ -237,27 +237,17 @@ void _showBottomSheet(BuildContext context) {
   showModalBottomSheet(
     shape: const RoundedRectangleBorder(
       borderRadius: BorderRadius.only(
-        topLeft: Radius.circular(50),
-        topRight: Radius.circular(50),
+        topLeft: Radius.circular(20),
+        topRight: Radius.circular(20),
       ),
     ),
     context: context,
     builder: (BuildContext context) {
       return Container(
-        decoration: const BoxDecoration(
-            gradient: LinearGradient(
-              begin: Alignment(-1, -1),
-              end: Alignment(1, 1),
-              colors: <Color>[
-                Color(0xffa164a9),
-                Color(0xffa164a9),
-                Color(0xff7c54a2),
-                Color(0xff5654a2)
-              ],
-              stops: <double>[0, 0, 0.484, 1],
-            ),
-            borderRadius: BorderRadius.only(
-                topRight: Radius.circular(50), topLeft: Radius.circular(50))),
+        decoration: BoxDecoration(
+            color: Colors.grey.shade100,
+            borderRadius: const BorderRadius.only(
+                topRight: Radius.circular(20), topLeft: Radius.circular(20))),
         padding: const EdgeInsets.all(16.0),
         child: SingleChildScrollView(
           child: Column(
@@ -279,6 +269,8 @@ void _showBottomSheet(BuildContext context) {
                           height: MediaQuery.of(context).size.height / 6,
                           width: MediaQuery.of(context).size.width,
                           decoration: BoxDecoration(
+                            borderRadius:
+                                const BorderRadius.all(Radius.circular(15)),
                             color: Colors.white,
                             boxShadow: [
                               BoxShadow(
@@ -319,6 +311,8 @@ void _showBottomSheet(BuildContext context) {
                           height: MediaQuery.of(context).size.height / 6,
                           width: MediaQuery.of(context).size.width,
                           decoration: BoxDecoration(
+                            borderRadius:
+                                const BorderRadius.all(Radius.circular(15)),
                             color: Colors.white,
                             boxShadow: [
                               BoxShadow(
@@ -363,6 +357,8 @@ void _showBottomSheet(BuildContext context) {
                           height: MediaQuery.of(context).size.height / 6,
                           width: MediaQuery.of(context).size.width,
                           decoration: BoxDecoration(
+                            borderRadius:
+                                const BorderRadius.all(Radius.circular(15)),
                             color: Colors.white,
                             boxShadow: [
                               BoxShadow(
@@ -403,6 +399,8 @@ void _showBottomSheet(BuildContext context) {
                           height: MediaQuery.of(context).size.height / 6,
                           width: MediaQuery.of(context).size.width,
                           decoration: BoxDecoration(
+                            borderRadius:
+                                const BorderRadius.all(Radius.circular(15)),
                             color: Colors.white,
                             boxShadow: [
                               BoxShadow(
@@ -444,6 +442,7 @@ void _showBottomSheet(BuildContext context) {
                     height: MediaQuery.of(context).size.height / 9,
                     width: MediaQuery.of(context).size.width,
                     decoration: BoxDecoration(
+                      borderRadius: const BorderRadius.all(Radius.circular(15)),
                       color: Colors.white,
                       boxShadow: [
                         BoxShadow(
@@ -483,26 +482,16 @@ void _showBottomSheet2(BuildContext context) {
   showModalBottomSheet(
     shape: const RoundedRectangleBorder(
       borderRadius: BorderRadius.only(
-        topLeft: Radius.circular(50),
-        topRight: Radius.circular(50),
+        topLeft: Radius.circular(20),
+        topRight: Radius.circular(20),
       ),
     ),
     context: context,
     builder: (BuildContext context) {
       return Container(
-        decoration: const BoxDecoration(
-            gradient: LinearGradient(
-              begin: Alignment(-1, -1),
-              end: Alignment(1, 1),
-              colors: <Color>[
-                Color(0xffa164a9),
-                Color(0xffa164a9),
-                Color(0xff7c54a2),
-                Color(0xff5654a2)
-              ],
-              stops: <double>[0, 0, 0.484, 1],
-            ),
-            borderRadius: BorderRadius.only(
+        decoration: BoxDecoration(
+            color: Colors.grey.shade100,
+            borderRadius: const BorderRadius.only(
                 topRight: Radius.circular(50), topLeft: Radius.circular(50))),
         padding: const EdgeInsets.all(16.0),
         child: SingleChildScrollView(
@@ -519,11 +508,14 @@ void _showBottomSheet2(BuildContext context) {
                       child: GestureDetector(
                         onTap: () {
                           Navigator.of(context).pop();
+                          showFloatingSnackbar(context, 'An error occurred!');
                         },
                         child: Container(
                           height: MediaQuery.of(context).size.height / 6,
                           width: MediaQuery.of(context).size.width,
                           decoration: BoxDecoration(
+                            borderRadius:
+                                const BorderRadius.all(Radius.circular(15)),
                             color: Colors.white,
                             boxShadow: [
                               BoxShadow(
@@ -558,11 +550,14 @@ void _showBottomSheet2(BuildContext context) {
                       child: GestureDetector(
                         onTap: () {
                           Navigator.of(context).pop();
+                          showFloatingSnackbar(context, 'An error occurred!');
                         },
                         child: Container(
                           height: MediaQuery.of(context).size.height / 6,
                           width: MediaQuery.of(context).size.width,
                           decoration: BoxDecoration(
+                            borderRadius:
+                                const BorderRadius.all(Radius.circular(15)),
                             color: Colors.white,
                             boxShadow: [
                               BoxShadow(
@@ -599,11 +594,16 @@ void _showBottomSheet2(BuildContext context) {
                     child: Padding(
                       padding: const EdgeInsets.only(left: 8, top: 8, right: 4),
                       child: GestureDetector(
-                        onTap: () {},
+                        onTap: () {
+                          Navigator.of(context).pop();
+                          showFloatingSnackbar(context, 'An error occurred!');
+                        },
                         child: Container(
                           height: MediaQuery.of(context).size.height / 6,
                           width: MediaQuery.of(context).size.width,
                           decoration: BoxDecoration(
+                            borderRadius:
+                                const BorderRadius.all(Radius.circular(15)),
                             color: Colors.white,
                             boxShadow: [
                               BoxShadow(
@@ -644,11 +644,16 @@ void _showBottomSheet2(BuildContext context) {
                     child: Padding(
                       padding: const EdgeInsets.only(left: 4, top: 8, right: 8),
                       child: GestureDetector(
-                        onTap: () {},
+                        onTap: () {
+                          Navigator.of(context).pop();
+                          showFloatingSnackbar(context, 'An error occurred!');
+                        },
                         child: Container(
                           height: MediaQuery.of(context).size.height / 6,
                           width: MediaQuery.of(context).size.width,
                           decoration: BoxDecoration(
+                            borderRadius:
+                                const BorderRadius.all(Radius.circular(15)),
                             color: Colors.white,
                             boxShadow: [
                               BoxShadow(
@@ -693,4 +698,23 @@ void _showBottomSheet2(BuildContext context) {
       );
     },
   );
+}
+
+void showFloatingSnackbar(BuildContext context, String message) {
+  final snackBar = SnackBar(
+    behavior: SnackBarBehavior.floating,
+    content: Row(
+      children: [
+        const Icon(Icons.error, color: Colors.white),
+        const SizedBox(width: 8),
+        Text(
+          message,
+          style: const TextStyle(fontSize: 16),
+        ),
+      ],
+    ),
+    backgroundColor: const Color(0xff8b89c2),
+  );
+
+  ScaffoldMessenger.of(context).showSnackBar(snackBar);
 }
