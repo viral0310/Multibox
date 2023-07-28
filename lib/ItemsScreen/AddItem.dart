@@ -447,7 +447,7 @@ class _AddItemScreenState extends State<AddItemScreen> {
                             Icons.help,
                             color: Color(0xff5654a2),
                           ),
-                          const SizedBox(
+                          SizedBox(
                             width: 15,
                           ),
                           Column(
