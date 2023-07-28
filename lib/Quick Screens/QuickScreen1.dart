@@ -247,7 +247,8 @@ class _QuickScreenState extends State<QuickScreen> {
                             shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(5))),
                         onPressed: () {
-                          Navigator.of(context).pushNamed('/QuickScreen2');
+                          Navigator.of(context)
+                              .pushReplacementNamed('/QuickScreen2');
                         },
                         child: const Text('Continue'),
                       ),

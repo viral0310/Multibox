@@ -5,6 +5,10 @@ import 'package:multi_purpose_app/Quick%20Screens/QuickScreen2.dart';
 import 'package:multi_purpose_app/Screen/Login/LoginScreen.dart';
 
 import 'ButtomSheet.dart';
+import 'ItemsScreen/AddItem.dart';
+import 'ItemsScreen/CategoryScreen.dart';
+import 'ItemsScreen/IngredientScreen.dart';
+import 'ItemsScreen/MofifierScreen.dart';
 import 'Quick Screens/QuickScreen1.dart';
 import 'Screen/HomeScreens/DrawerComponenets/CheckoutScreen.dart';
 import 'Screen/HomeScreens/DrawerComponenets/DashboardScreen.dart';
@@ -42,6 +46,10 @@ void main() {
         '/BottomScreen': (context) => const BottomNavigation(),
         '/QuickAddScreen': (context) => const QuickAddScreen(),
         '/InventoryScreen': (context) => const InventoryScreen(),
+        '/AddItemScreen': (context) => const AddItemScreen(),
+        '/CategoryScreen': (context) => const CategoryScreen(),
+        '/ModifierScreen': (context) => const ModifierScreen(),
+        '/IngredientScreen': (context) => const IngredientScreen(),
       },
     ),
   );

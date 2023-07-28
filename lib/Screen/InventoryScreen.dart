@@ -1,8 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import '../utils.dart';
-
 class InventoryScreen extends StatefulWidget {
   const InventoryScreen({super.key});
 
@@ -273,7 +271,10 @@ void _showBottomSheet(BuildContext context) {
                     child: Padding(
                       padding: const EdgeInsets.only(left: 8, top: 8, right: 4),
                       child: GestureDetector(
-                        onTap: () {},
+                        onTap: () {
+                          Navigator.of(context).pop();
+                          Navigator.of(context).pushNamed('/AddItemScreen');
+                        },
                         child: Container(
                           height: MediaQuery.of(context).size.height / 6,
                           width: MediaQuery.of(context).size.width,
@@ -310,7 +311,10 @@ void _showBottomSheet(BuildContext context) {
                     child: Padding(
                       padding: const EdgeInsets.only(left: 4, top: 8, right: 8),
                       child: GestureDetector(
-                        onTap: () {},
+                        onTap: () {
+                          Navigator.of(context).pop();
+                          Navigator.of(context).pushNamed('/CategoryScreen');
+                        },
                         child: Container(
                           height: MediaQuery.of(context).size.height / 6,
                           width: MediaQuery.of(context).size.width,
@@ -351,7 +355,10 @@ void _showBottomSheet(BuildContext context) {
                     child: Padding(
                       padding: const EdgeInsets.only(left: 8, top: 8, right: 4),
                       child: GestureDetector(
-                        onTap: () {},
+                        onTap: () {
+                          Navigator.of(context).pop();
+                          Navigator.of(context).pushNamed('/ModifierScreen');
+                        },
                         child: Container(
                           height: MediaQuery.of(context).size.height / 6,
                           width: MediaQuery.of(context).size.width,
@@ -388,7 +395,10 @@ void _showBottomSheet(BuildContext context) {
                     child: Padding(
                       padding: const EdgeInsets.only(left: 4, top: 8, right: 8),
                       child: GestureDetector(
-                        onTap: () {},
+                        onTap: () {
+                          Navigator.of(context).pop();
+                          Navigator.of(context).pushNamed('/IngredientScreen');
+                        },
                         child: Container(
                           height: MediaQuery.of(context).size.height / 6,
                           width: MediaQuery.of(context).size.width,
@@ -426,7 +436,10 @@ void _showBottomSheet(BuildContext context) {
               Padding(
                 padding: const EdgeInsets.only(left: 8, top: 8, right: 8),
                 child: GestureDetector(
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.of(context).pop();
+                    _showBottomSheet2(context);
+                  },
                   child: Container(
                     height: MediaQuery.of(context).size.height / 9,
                     width: MediaQuery.of(context).size.width,
@@ -457,6 +470,222 @@ void _showBottomSheet(BuildContext context) {
                     ),
                   ),
                 ),
+              ),
+            ],
+          ),
+        ),
+      );
+    },
+  );
+}
+
+void _showBottomSheet2(BuildContext context) {
+  showModalBottomSheet(
+    shape: const RoundedRectangleBorder(
+      borderRadius: BorderRadius.only(
+        topLeft: Radius.circular(50),
+        topRight: Radius.circular(50),
+      ),
+    ),
+    context: context,
+    builder: (BuildContext context) {
+      return Container(
+        decoration: const BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment(-1, -1),
+              end: Alignment(1, 1),
+              colors: <Color>[
+                Color(0xffa164a9),
+                Color(0xffa164a9),
+                Color(0xff7c54a2),
+                Color(0xff5654a2)
+              ],
+              stops: <double>[0, 0, 0.484, 1],
+            ),
+            borderRadius: BorderRadius.only(
+                topRight: Radius.circular(50), topLeft: Radius.circular(50))),
+        padding: const EdgeInsets.all(16.0),
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: <Widget>[
+              const SizedBox(height: 20),
+              Row(
+                children: [
+                  Expanded(
+                    child: Padding(
+                      padding: const EdgeInsets.only(left: 8, top: 8, right: 4),
+                      child: GestureDetector(
+                        onTap: () {
+                          Navigator.of(context).pop();
+                        },
+                        child: Container(
+                          height: MediaQuery.of(context).size.height / 6,
+                          width: MediaQuery.of(context).size.width,
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.black.withOpacity(0.2),
+                                offset: const Offset(0, 2),
+                                blurRadius: 4,
+                                spreadRadius: 1,
+                              ),
+                            ],
+                          ),
+                          child: const Column(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                'Bulk Price Edit',
+                                style: TextStyle(
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.w600,
+                                  color: Color(0xff5654a2),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                  Expanded(
+                    child: Padding(
+                      padding: const EdgeInsets.only(left: 4, top: 8, right: 8),
+                      child: GestureDetector(
+                        onTap: () {
+                          Navigator.of(context).pop();
+                        },
+                        child: Container(
+                          height: MediaQuery.of(context).size.height / 6,
+                          width: MediaQuery.of(context).size.width,
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.black.withOpacity(0.2),
+                                offset: const Offset(0, 2),
+                                blurRadius: 4,
+                                spreadRadius: 1,
+                              ),
+                            ],
+                          ),
+                          child: const Column(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                'Bulk Stock Edit',
+                                style: TextStyle(
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.w600,
+                                  color: Color(0xff5654a2),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              Row(
+                children: [
+                  Expanded(
+                    child: Padding(
+                      padding: const EdgeInsets.only(left: 8, top: 8, right: 4),
+                      child: GestureDetector(
+                        onTap: () {},
+                        child: Container(
+                          height: MediaQuery.of(context).size.height / 6,
+                          width: MediaQuery.of(context).size.width,
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.black.withOpacity(0.2),
+                                offset: const Offset(0, 2),
+                                blurRadius: 4,
+                                spreadRadius: 1,
+                              ),
+                            ],
+                          ),
+                          child: const Column(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                'Bulk Cost Price',
+                                style: TextStyle(
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.w600,
+                                  color: Color(0xff5654a2),
+                                ),
+                              ),
+                              Text(
+                                'Edit',
+                                style: TextStyle(
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.w600,
+                                  color: Color(0xff5654a2),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                  Expanded(
+                    child: Padding(
+                      padding: const EdgeInsets.only(left: 4, top: 8, right: 8),
+                      child: GestureDetector(
+                        onTap: () {},
+                        child: Container(
+                          height: MediaQuery.of(context).size.height / 6,
+                          width: MediaQuery.of(context).size.width,
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.black.withOpacity(0.2),
+                                offset: const Offset(0, 2),
+                                blurRadius: 4,
+                                spreadRadius: 1,
+                              ),
+                            ],
+                          ),
+                          child: const Column(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                'Bulk Variant',
+                                style: TextStyle(
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.w600,
+                                  color: Color(0xff5654a2),
+                                ),
+                              ),
+                              Text(
+                                'Name Edit',
+                                style: TextStyle(
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.w600,
+                                  color: Color(0xff5654a2),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ],
           ),
