@@ -13,20 +13,21 @@ class BottomNavigation extends StatefulWidget {
   State<BottomNavigation> createState() => _BottomNavigationState();
 }
 
+int startPage = 1;
+final screens = [
+  const ItemScreen(),
+  const CounterScreen(),
+  const TodayScreen(),
+  const ReportScreen(),
+  const MoreScreen(),
+];
+
 class _BottomNavigationState extends State<BottomNavigation> {
-  int index = 1;
-  final screens = [
-    const ItemScreen(),
-    const CounterScreen(),
-    const TodayScreen(),
-    const ReportScreen(),
-    const MoreScreen(),
-  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.grey[100],
-      body: screens[index],
+      body: screens[startPage],
       bottomNavigationBar: NavigationBarTheme(
         data: NavigationBarThemeData(
           labelTextStyle: MaterialStateProperty.all(
@@ -41,8 +42,8 @@ class _BottomNavigationState extends State<BottomNavigation> {
         child: NavigationBar(
           surfaceTintColor: Colors.blue,
           shadowColor: Colors.blueAccent,
-          selectedIndex: index,
-          onDestinationSelected: (index) => setState(() => this.index = index),
+          selectedIndex: startPage,
+          onDestinationSelected: (index) => setState(() => startPage = index),
           height: 60,
           //indicatorShape: const CircleBorder(),
           indicatorColor: const Color(0xffa164a9),
