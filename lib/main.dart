@@ -20,10 +20,12 @@ import 'Screen/HomeScreens/paymentSetupScreen.dart';
 import 'Screen/InventoryScreen.dart';
 import 'Screen/Login/RegisterScreen.dart';
 import 'Screen/Login/VerifyScreen.dart';
+import 'Screen/ManagePayrollScreen.dart';
 import 'Screen/QuickScreen.dart';
 import 'Screen/Splashscreen.dart';
 import 'Screen/on bording 1/OnBordingScreen1.dart';
 import 'buttom screen/Item.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -33,6 +35,13 @@ void main() {
       theme: ThemeData(
         primaryColor: const Color(0x005654a2),
       ),
+      localizationsDelegates: const [
+        GlobalWidgetsLocalizations.delegate,
+        GlobalMaterialLocalizations.delegate,
+      ],
+      supportedLocales: const [
+        Locale('en'), // English
+      ],
       debugShowCheckedModeBanner: false,
       initialRoute: '/',
       routes: {
@@ -58,6 +67,7 @@ void main() {
         '/AttendanceScreen': (context) => const AttendanceScreen(),
         '/CustomerScreen': (context) => const CustomerScreen(),
         '/AddCustomer': (context) => const AddCustomer(),
+        '/ManagePayroll': (context) => const ManagePayroll(),
       },
     ),
   );

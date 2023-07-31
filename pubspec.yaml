@@ -41,6 +41,8 @@ dependencies:
   chips_choice: ^3.0.0
   math_expressions: ^2.3.1
   flutter_custom_clippers:
+  intl: ^0.18.0
+  month_picker_dialog: ^2.0.2
 
 
 dev_dependencies:
