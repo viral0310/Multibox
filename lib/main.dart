@@ -10,6 +10,9 @@ import 'ItemsScreen/CategoryScreen.dart';
 import 'ItemsScreen/IngredientScreen.dart';
 import 'ItemsScreen/MofifierScreen.dart';
 import 'Quick Screens/QuickScreen1.dart';
+import 'Screen/AddCustomer.dart';
+import 'Screen/AttendanceScreen.dart';
+import 'Screen/CustomerScreen.dart';
 import 'Screen/HomeScreens/DrawerComponenets/CheckoutScreen.dart';
 import 'Screen/HomeScreens/DrawerComponenets/DashboardScreen.dart';
 import 'Screen/HomeScreens/DrawerScreens.dart';
@@ -52,6 +55,9 @@ void main() {
         '/ModifierScreen': (context) => const ModifierScreen(),
         '/IngredientScreen': (context) => const IngredientScreen(),
         '/ItemScreen': (context) => const ItemScreen(),
+        '/AttendanceScreen': (context) => const AttendanceScreen(),
+        '/CustomerScreen': (context) => const CustomerScreen(),
+        '/AddCustomer': (context) => const AddCustomer(),
       },
     ),
   );
