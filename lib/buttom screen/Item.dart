@@ -40,9 +40,9 @@ class _ItemScreenState extends State<ItemScreen> {
               mainAxisSize: MainAxisSize.min,
               children: [
                 Padding(
-                  padding: const EdgeInsets.all(8.0),
+                  padding: const EdgeInsets.only(left: 8, top: 8, bottom: 8),
                   child: SizedBox(
-                    width: 296,
+                    width: MediaQuery.of(context).size.width / 1.19,
                     child: SearchBar(
                       shape: MaterialStateProperty.all(
                         const BeveledRectangleBorder(

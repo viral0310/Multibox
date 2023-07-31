@@ -508,7 +508,9 @@ class _MoreScreenState extends State<MoreScreen> {
                   child: Padding(
                     padding: const EdgeInsets.only(left: 4, top: 8, right: 8),
                     child: GestureDetector(
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.of(context).pushNamed('/InventoryScreen');
+                      },
                       child: Container(
                         height: MediaQuery.of(context).size.height / 6,
                         width: MediaQuery.of(context).size.width,

@@ -183,33 +183,9 @@ class _ModifierScreenState extends State<ModifierScreen> {
                                       ),
                                     ),
                                   ),
-                                ],
-                              ),
-                            ),
-                          ),
-                        ),
-                      );
-                    },
-                  ),
-                ),
-                Expanded(
-                  child: ListView.builder(
-                    itemCount: text2FieldCount,
-                    itemBuilder: (context, index) {
-                      return Padding(
-                        padding: const EdgeInsets.only(right: 10, bottom: 10),
-                        child: Container(
-                          decoration: const BoxDecoration(
-                            color: Colors.white,
-                          ),
-                          width: width,
-                          height: height / 14,
-                          child: ListTile(
-                            title: Padding(
-                              padding: const EdgeInsets.only(
-                                  left: 2, right: 2, bottom: 10),
-                              child: Row(
-                                children: [
+                                  const SizedBox(
+                                    width: 5,
+                                  ),
                                   Expanded(
                                     child: TextFormField(
                                       controller: text2Controllers[index],

@@ -71,15 +71,10 @@ class _DrawerScreenState extends State<DrawerScreen> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  DrawerIcons("assets/images/Drawer/checkout.png", 'Checkout',
-                      '/CheckoutScreen'),
                   DrawerIcons("assets/images/Drawer/analytics.png", 'Dashboard',
                       '/DashboardScreen'),
-                  DrawerIcons(
-                      "assets/images/Drawer/contact-book.png", 'Contact', ''),
-                  buildPanel(),
-                  const purchases(),
-                  const Items(),
+                  DrawerIcons("assets/images/Drawer/contact-book.png",
+                      'Customer Management', ''),
                   DrawerIcons(
                       "assets/images/Drawer/business-report.png", 'Report', ''),
                   DrawerIcons("assets/images/Drawer/insurance-company.png",

@@ -20,6 +20,7 @@ import 'Screen/Login/VerifyScreen.dart';
 import 'Screen/QuickScreen.dart';
 import 'Screen/Splashscreen.dart';
 import 'Screen/on bording 1/OnBordingScreen1.dart';
+import 'buttom screen/Item.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -50,6 +51,7 @@ void main() {
         '/CategoryScreen': (context) => const CategoryScreen(),
         '/ModifierScreen': (context) => const ModifierScreen(),
         '/IngredientScreen': (context) => const IngredientScreen(),
+        '/ItemScreen': (context) => const ItemScreen(),
       },
     ),
   );
