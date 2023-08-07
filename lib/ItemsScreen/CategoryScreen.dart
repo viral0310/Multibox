@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
+import 'dart:io';
 
 class CategoryScreen extends StatefulWidget {
   const CategoryScreen({super.key});
@@ -8,8 +10,18 @@ class CategoryScreen extends StatefulWidget {
 }
 
 final TextEditingController itemEditingController = TextEditingController();
+File? _image;
 
 class _CategoryScreenState extends State<CategoryScreen> {
+  Future<void> _pickImage() async {
+    final pickedImage =
+        await ImagePicker().pickImage(source: ImageSource.gallery);
+
+    setState(() {
+      _image = File(pickedImage!.path);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     var width = MediaQuery.of(context).size.width;
@@ -76,14 +88,20 @@ class _CategoryScreenState extends State<CategoryScreen> {
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Container(
-                height: 110,
-                width: 110,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(15),
-                  image: const DecorationImage(
-                    fit: BoxFit.fill,
-                    image: AssetImage('assets/images/girl.png'),
+              InkWell(
+                onTap: _pickImage,
+                child: Container(
+                  height: 110,
+                  width: 110,
+                  decoration: BoxDecoration(
+                    color: const Color(0xff9c9acb),
+                    borderRadius: BorderRadius.circular(15),
+                    image: _image != null
+                        ? DecorationImage(
+                            image: FileImage(_image!),
+                            fit: BoxFit.cover,
+                          )
+                        : null,
                   ),
                 ),
               ),

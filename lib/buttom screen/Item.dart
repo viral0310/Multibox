@@ -77,7 +77,8 @@ class _ItemScreenState extends State<ItemScreen> {
               ],
             ),
           ),
-          Expanded(
+
+          /*Expanded(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -128,7 +129,7 @@ class _ItemScreenState extends State<ItemScreen> {
                 ),
               ],
             ),
-          ),
+          ),*/
         ],
       ),
       floatingActionButton: FloatingActionButton(

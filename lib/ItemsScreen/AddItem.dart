@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
+import 'dart:io';
 
 class AddItemScreen extends StatefulWidget {
   const AddItemScreen({super.key});
@@ -18,11 +20,12 @@ class _AddItemScreenState extends State<AddItemScreen> {
   final TextEditingController sellingPriceTab1EditingController =
       TextEditingController();
 
+  File? _image;
+
   bool _isButtonEnabled = false;
   bool _isButton4Enabled = false;
 
   bool category = false;
-  bool _isButton3Enabled = true;
 
   @override
   void initState() {
@@ -49,6 +52,15 @@ class _AddItemScreenState extends State<AddItemScreen> {
   void _updateButton4Status() {
     setState(() {
       _isButton4Enabled = sellingPriceTab1EditingController.text.isNotEmpty;
+    });
+  }
+
+  Future<void> _pickImage() async {
+    final pickedImage =
+        await ImagePicker().pickImage(source: ImageSource.gallery);
+
+    setState(() {
+      _image = File(pickedImage!.path);
     });
   }
 
@@ -311,7 +323,7 @@ class _AddItemScreenState extends State<AddItemScreen> {
                     fillColor: MaterialStateProperty.all(
                       const Color(0xff5654a2),
                     ),
-                    value: _isButton3Enabled,
+                    value: true,
                     onChanged: (value) {},
                   ),
                   Expanded(
@@ -429,10 +441,12 @@ class _AddItemScreenState extends State<AddItemScreen> {
                       const SizedBox(
                         height: 15,
                       ),
-                      GestureDetector(
-                        onTap: () {},
-                        child: const CircleAvatar(
-                          backgroundColor: Color(0xff9c9acb),
+                      InkWell(
+                        onTap: _pickImage,
+                        child: CircleAvatar(
+                          backgroundColor: const Color(0xff9c9acb),
+                          backgroundImage:
+                              _image != null ? FileImage(_image!) : null,
                           radius: 50,
                         ),
                       ),
