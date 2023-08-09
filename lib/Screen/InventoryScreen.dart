@@ -101,7 +101,7 @@ class _InventoryScreenState extends State<InventoryScreen> {
                               child: Container(
                                 width: MediaQuery.of(context).size.width,
                                 height:
-                                    MediaQuery.of(context).size.height / 7.3,
+                                    MediaQuery.of(context).size.height / 7.2,
                                 decoration: BoxDecoration(
                                     color: Colors.white,
                                     boxShadow: [
@@ -124,7 +124,14 @@ class _InventoryScreenState extends State<InventoryScreen> {
                                           ),
                                         ),
                                       ],
-                                    )
+                                    ),
+                                    Padding(
+                                      padding:
+                                          EdgeInsets.only(left: 8, right: 8),
+                                      child: Divider(
+                                        thickness: 2,
+                                      ),
+                                    ),
                                   ],
                                 ),
                               ),
