@@ -9,9 +9,24 @@ class ItemScreen extends StatefulWidget {
   State<ItemScreen> createState() => _ItemScreenState();
 }
 
-List<Map<String, dynamic>> itemList = [];
-
 class _ItemScreenState extends State<ItemScreen> {
+  final List<Map<String, dynamic>> cardData = [
+    {
+      'icon': 'assets/images/girl.png',
+      'title': 'Pan',
+      'price': 'INR100',
+    },
+    {
+      'icon': 'assets/images/girl.png',
+      'title': 'Cold Drink',
+      'price': 'INR100',
+    },
+    {
+      'icon': 'assets/images/girl.png',
+      'title': 'Wafer',
+      'price': 'INR100',
+    },
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -77,7 +92,22 @@ class _ItemScreenState extends State<ItemScreen> {
               ],
             ),
           ),
-
+          Expanded(
+            child: GridView.builder(
+              itemCount: cardData.length,
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 3,
+                childAspectRatio: 2 / 3,
+              ),
+              itemBuilder: (BuildContext context, int index) {
+                return CardWidget(
+                  icon: cardData[index]['icon'],
+                  title: cardData[index]['title'],
+                  price: cardData[index]['price'],
+                );
+              },
+            ),
+          ),
           /*Expanded(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -138,6 +168,47 @@ class _ItemScreenState extends State<ItemScreen> {
         },
         backgroundColor: const Color(0xffa164a9),
         child: const Icon(Icons.flash_on_sharp),
+      ),
+    );
+  }
+}
+
+class CardWidget extends StatelessWidget {
+  final String icon;
+  final String title;
+  final String price;
+
+  CardWidget({required this.icon, required this.title, required this.price});
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      elevation: 4,
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Container(
+              height: 50,
+              width: 50,
+              decoration: BoxDecoration(
+                image:
+                    DecorationImage(image: AssetImage(icon), fit: BoxFit.fill),
+              ),
+            ),
+            const SizedBox(height: 8),
+            Text(title),
+            const SizedBox(height: 30),
+            Text(
+              price,
+              style: const TextStyle(
+                color: Color(0xff5654a2),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
