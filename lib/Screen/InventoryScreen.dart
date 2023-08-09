@@ -8,6 +8,12 @@ class InventoryScreen extends StatefulWidget {
   State<InventoryScreen> createState() => _InventoryScreenState();
 }
 
+final List<Map<String, String>> dataList = [
+  {'title': 'Item 1', 'subtitle': 'Subtitle 1'},
+  {'title': 'Item 2', 'subtitle': 'Subtitle 2'},
+  {'title': 'Item 3', 'subtitle': 'Subtitle 3'},
+];
+
 class _InventoryScreenState extends State<InventoryScreen> {
   @override
   Widget build(BuildContext context) {
@@ -85,7 +91,48 @@ class _InventoryScreenState extends State<InventoryScreen> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      Container(
+                      Expanded(
+                        child: ListView.builder(
+                          itemCount: dataList.length,
+                          itemBuilder: (BuildContext context, int index) {
+                            return Padding(
+                              padding: const EdgeInsets.only(
+                                  top: 8, left: 8, right: 8),
+                              child: Container(
+                                width: MediaQuery.of(context).size.width,
+                                height:
+                                    MediaQuery.of(context).size.height / 7.3,
+                                decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    boxShadow: [
+                                      BoxShadow(
+                                        color: Colors.black.withOpacity(0.2),
+                                        offset: const Offset(0, 2),
+                                        blurRadius: 4,
+                                        spreadRadius: 1,
+                                      ),
+                                    ]),
+                                child: const Column(
+                                  children: [
+                                    Row(
+                                      children: [
+                                        Padding(
+                                          padding: EdgeInsets.all(8.0),
+                                          child: CircleAvatar(
+                                            backgroundColor: Colors.black,
+                                            radius: 25,
+                                          ),
+                                        ),
+                                      ],
+                                    )
+                                  ],
+                                ),
+                              ),
+                            );
+                          },
+                        ),
+                      ),
+                      /* Container(
                         height: 110,
                         width: 110,
                         decoration: BoxDecoration(
@@ -100,7 +147,7 @@ class _InventoryScreenState extends State<InventoryScreen> {
                       const Text(
                         "No Items, Please Add one!",
                         style: TextStyle(color: Colors.grey),
-                      ),
+                      ),*/
                     ],
                   ),
                 ),
