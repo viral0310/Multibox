@@ -26,6 +26,7 @@ class _ItemScreenState extends State<ItemScreen> {
       'title': 'Wafer',
       'price': 'INR100',
     },
+    {'type': 'add'},
   ];
   @override
   Widget build(BuildContext context) {
@@ -100,11 +101,38 @@ class _ItemScreenState extends State<ItemScreen> {
                 childAspectRatio: 2 / 3,
               ),
               itemBuilder: (BuildContext context, int index) {
-                return CardWidget(
-                  icon: cardData[index]['icon'],
-                  title: cardData[index]['title'],
-                  price: cardData[index]['price'],
-                );
+                return cardData[index]['type'] != null &&
+                        cardData[index]['type'] == 'add'
+                    ? GestureDetector(
+                        onTap: () {
+                          Navigator.of(context).pushNamed('/InventoryScreen');
+                        },
+                        child: const Card(
+                          elevation: 4,
+                          child: Padding(
+                            padding: EdgeInsets.all(8.0),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Icon(
+                                  Icons.add_circle,
+                                  color: Color(0xff5654a2),
+                                  size: 35,
+                                ),
+                                SizedBox(height: 8),
+                                Text('Add New'),
+                                Text('Item'),
+                              ],
+                            ),
+                          ),
+                        ),
+                      )
+                    : CardWidget(
+                        icon: cardData[index]['icon'],
+                        title: cardData[index]['title'],
+                        price: cardData[index]['price'],
+                      );
               },
             ),
           ),
