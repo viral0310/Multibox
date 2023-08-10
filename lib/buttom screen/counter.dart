@@ -154,7 +154,7 @@ class _CounterScreenState extends State<CounterScreen> {
                 padding: const EdgeInsets.all(8.0),
                 child: Column(
                   children: [
-                    Row(
+                    const Row(
                       children: [
                         Text(
                           'Subtotal',
@@ -167,7 +167,7 @@ class _CounterScreenState extends State<CounterScreen> {
                         ),
                       ],
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 5,
                     ),
                     Container(
@@ -175,10 +175,10 @@ class _CounterScreenState extends State<CounterScreen> {
                       width: width,
                       color: Colors.black,
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 7,
                     ),
-                    Row(
+                    const Row(
                       children: [
                         Text(
                           'Grand Total',
@@ -194,8 +194,8 @@ class _CounterScreenState extends State<CounterScreen> {
                         ),
                       ],
                     ),
-                    Spacer(),
-                    Row(
+                    const Spacer(),
+                    const Row(
                       children: [
                         Text(
                           'ADD TAX',
@@ -215,8 +215,8 @@ class _CounterScreenState extends State<CounterScreen> {
                         ),
                       ],
                     ),
-                    Spacer(),
-                    Row(
+                    const Spacer(),
+                    const Row(
                       children: [
                         Text(
                           'ADD DISCOUNT',
@@ -237,7 +237,7 @@ class _CounterScreenState extends State<CounterScreen> {
                         ),
                       ],
                     ),
-                    Spacer(),
+                    const Spacer(),
                   ],
                 ),
               ),
