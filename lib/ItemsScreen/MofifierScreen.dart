@@ -187,6 +187,14 @@ class _ModifierScreenState extends State<ModifierScreen> {
                         }
                         final String item = items.removeAt(oldIndex);
                         items.insert(newIndex, item);
+
+                        final TextEditingController controller1 =
+                            textControllers.removeAt(oldIndex);
+                        textControllers.insert(newIndex, controller1);
+
+                        final TextEditingController controller2 =
+                            text2Controllers.removeAt(oldIndex);
+                        text2Controllers.insert(newIndex, controller2);
                       });
                     },
                     children: List.generate(
