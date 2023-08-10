@@ -221,6 +221,7 @@ class _ModifierScreenState extends State<ModifierScreen> {
                                 Expanded(
                                   flex: 2,
                                   child: TextFormField(
+                                    keyboardType: TextInputType.phone,
                                     controller: text2Controllers[index],
                                     decoration: const InputDecoration(
                                       hintText: 'INR0.00',
@@ -239,8 +240,8 @@ class _ModifierScreenState extends State<ModifierScreen> {
                                     ),
                                   ),
                                 ),
-                                Padding(
-                                  padding: const EdgeInsets.only(top: 10),
+                                const Padding(
+                                  padding: EdgeInsets.only(top: 10),
                                   child: Icon(
                                     CupertinoIcons.arrow_up_down_circle,
                                     color: Color(0xff5654a2),
