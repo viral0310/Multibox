@@ -102,270 +102,189 @@ class _ModifierScreenState extends State<ModifierScreen> {
           ),
         ],
       ),
-      body: Column(
-        children: [
-          Padding(
-            padding: const EdgeInsets.all(10.0),
-            child: Container(
-              decoration: BoxDecoration(
-                color: Colors.white,
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.grey.withOpacity(0.2),
-                    offset: const Offset(0, 2),
-                    blurRadius: 4,
-                    spreadRadius: 2,
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: Container(
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.2),
+                      offset: const Offset(0, 2),
+                      blurRadius: 4,
+                      spreadRadius: 2,
+                    ),
+                  ],
+                ),
+                width: width,
+                height: height / 14,
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 12, right: 12),
+                  child: TextField(
+                    controller: modifierEditingController,
+                    cursorColor: const Color(0xff5654a2),
+                    style: const TextStyle(
+                      color: Colors.black,
+                      fontSize: 14,
+                      fontFamily: 'Montserrat',
+                      fontWeight: FontWeight.w400,
+                    ),
+                    decoration: InputDecoration(
+                      enabledBorder: const UnderlineInputBorder(
+                        borderSide: BorderSide(color: Colors.black),
+                      ),
+                      disabledBorder: const OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: Colors.transparent,
+                        ),
+                      ),
+                      border: OutlineInputBorder(
+                        borderSide: const BorderSide(color: Colors.transparent),
+                        borderRadius: BorderRadius.circular(8.0),
+                      ),
+                      focusedBorder: const UnderlineInputBorder(
+                        borderSide: BorderSide(color: Colors.black),
+                      ),
+                      floatingLabelBehavior: FloatingLabelBehavior.always,
+                      hintText: 'Modifier Set Name',
+                      hintStyle:
+                          const TextStyle(color: Colors.grey, fontSize: 18),
+                    ),
                   ),
-                ],
+                ),
               ),
-              width: width,
-              height: height / 14,
-              child: Padding(
-                padding: const EdgeInsets.only(left: 12, right: 12),
-                child: TextField(
-                  controller: modifierEditingController,
-                  cursorColor: const Color(0xff5654a2),
-                  style: const TextStyle(
-                    color: Colors.black,
-                    fontSize: 14,
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+            const Row(
+              children: [
+                Text(
+                  '   MODIFIERS',
+                  style: TextStyle(
+                    color: Color(0xff5654a2),
+                    fontSize: 16,
                     fontFamily: 'Montserrat',
                     fontWeight: FontWeight.w400,
                   ),
-                  decoration: InputDecoration(
-                    enabledBorder: const UnderlineInputBorder(
-                      borderSide: BorderSide(color: Colors.black),
-                    ),
-                    disabledBorder: const OutlineInputBorder(
-                      borderSide: BorderSide(
-                        color: Colors.transparent,
-                      ),
-                    ),
-                    border: OutlineInputBorder(
-                      borderSide: const BorderSide(color: Colors.transparent),
-                      borderRadius: BorderRadius.circular(8.0),
-                    ),
-                    focusedBorder: const UnderlineInputBorder(
-                      borderSide: BorderSide(color: Colors.black),
-                    ),
-                    floatingLabelBehavior: FloatingLabelBehavior.always,
-                    hintText: 'Modifier Set Name',
-                    hintStyle:
-                        const TextStyle(color: Colors.grey, fontSize: 18),
-                  ),
-                ),
-              ),
-            ),
-          ),
-          const SizedBox(
-            height: 10,
-          ),
-          const Row(
-            children: [
-              Text(
-                '   MODIFIERS',
-                style: TextStyle(
-                  color: Color(0xff5654a2),
-                  fontSize: 16,
-                  fontFamily: 'Montserrat',
-                  fontWeight: FontWeight.w400,
-                ),
-              ),
-            ],
-          ),
-          const SizedBox(
-            height: 8,
-          ),
-          Expanded(
-            child: Row(
-              children: [
-                Expanded(
-                  child: ReorderableListView(
-                    onReorder: (oldIndex, newIndex) {
-                      setState(() {
-                        if (newIndex > oldIndex) {
-                          newIndex -= 1;
-                        }
-                        final String item = items.removeAt(oldIndex);
-                        items.insert(newIndex, item);
-
-                        final TextEditingController controller1 =
-                            textControllers.removeAt(oldIndex);
-                        textControllers.insert(newIndex, controller1);
-
-                        final TextEditingController controller2 =
-                            text2Controllers.removeAt(oldIndex);
-                        text2Controllers.insert(newIndex, controller2);
-                      });
-                    },
-                    children: List.generate(
-                      textFieldCount,
-                      (index) => ListTile(
-                        key: Key('$index'),
-                        title: Container(
-                          decoration: const BoxDecoration(
-                            color: Colors.white,
-                          ),
-                          width: width,
-                          height: height / 14,
-                          child: Padding(
-                            padding: const EdgeInsets.only(
-                                left: 10, right: 10, bottom: 10),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                Expanded(
-                                  flex: 3,
-                                  child: TextFormField(
-                                    controller: textControllers[index],
-                                    decoration: const InputDecoration(
-                                      hintText: 'Name',
-                                    ),
-                                  ),
-                                ),
-                                const SizedBox(
-                                  width: 5,
-                                ),
-                                Expanded(
-                                  flex: 2,
-                                  child: TextFormField(
-                                    keyboardType: TextInputType.phone,
-                                    controller: text2Controllers[index],
-                                    decoration: const InputDecoration(
-                                      hintText: 'INR0.00',
-                                    ),
-                                  ),
-                                ),
-                                IconButton(
-                                  onPressed: () => removeItem(index),
-                                  icon: Padding(
-                                    padding: const EdgeInsets.only(top: 10),
-                                    child: Image.asset(
-                                      'assets/images/close.png',
-                                      color: Colors.red,
-                                      width: 20,
-                                      height: 20,
-                                    ),
-                                  ),
-                                ),
-                                const Padding(
-                                  padding: EdgeInsets.only(top: 10),
-                                  child: Icon(
-                                    CupertinoIcons.arrow_up_down_circle,
-                                    color: Color(0xff5654a2),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-
-                  /*ListView.builder(
-                    itemCount: textFieldCount,
-                    itemBuilder: (context, index) {
-                      return Padding(
-                        padding: const EdgeInsets.only(left: 10, bottom: 10),
-                        child: Container(
-                          decoration: const BoxDecoration(
-                            color: Colors.white,
-                          ),
-                          width: width,
-                          height: height / 14,
-                          child: ListTile(
-                            title: Padding(
-                              padding: const EdgeInsets.only(
-                                  left: 2, right: 2, bottom: 10),
-                              child: Row(
-                                children: [
-                                  Expanded(
-                                    flex: 3,
-                                    child: TextFormField(
-                                      controller: textControllers[index],
-                                      decoration: const InputDecoration(
-                                        hintText: 'Name',
-                                      ),
-                                    ),
-                                  ),
-                                  const SizedBox(
-                                    width: 5,
-                                  ),
-                                  Expanded(
-                                    flex: 2,
-                                    child: TextFormField(
-                                      controller: text2Controllers[index],
-                                      decoration: const InputDecoration(
-                                        hintText: 'INR0.00',
-                                      ),
-                                    ),
-                                  ),
-                                  IconButton(
-                                    onPressed: () {
-                                      setState(() {
-                                        textFieldCount--;
-                                        textControllers.remove(
-                                          TextEditingController(),
-                                        );
-                                        text2FieldCount--;
-                                        text2Controllers.remove(
-                                          TextEditingController(),
-                                        );
-                                      });
-                                    },
-                                    icon: Image.asset(
-                                      'assets/images/close.png',
-                                      color: Colors.red,
-                                      width: 20,
-                                      height: 20,
-                                    ),
-                                  ),
-                                  IconButton(
-                                    onPressed: () {},
-                                    icon: const Icon(
-                                      CupertinoIcons.arrow_up_down_circle,
-                                      color: Color(0xff5654a2),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                        ),
-                      );
-                    },
-                  ),*/
                 ),
               ],
             ),
-          ),
-          const SizedBox(
-            height: 10,
-          ),
-          IconButton(
-            onPressed: () {
-              setState(() {
-                textFieldCount++;
-                textControllers.add(
-                  TextEditingController(),
-                );
-                text2FieldCount++;
-                text2Controllers.add(
-                  TextEditingController(),
-                );
-              });
-            },
-            icon: const Icon(
-              CupertinoIcons.plus_circle_fill,
-              color: Color(0xff5654a2),
-              size: 35,
+            const SizedBox(
+              height: 8,
             ),
-          ),
-          const SizedBox(
-            height: 30,
-          ),
-        ],
+            ReorderableListView(
+              physics: const NeverScrollableScrollPhysics(),
+              shrinkWrap: true,
+              onReorder: (oldIndex, newIndex) {
+                setState(() {
+                  if (newIndex > oldIndex) {
+                    newIndex -= 1;
+                  }
+                  final String item = items.removeAt(oldIndex);
+                  items.insert(newIndex, item);
+
+                  final TextEditingController controller1 =
+                      textControllers.removeAt(oldIndex);
+                  textControllers.insert(newIndex, controller1);
+
+                  final TextEditingController controller2 =
+                      text2Controllers.removeAt(oldIndex);
+                  text2Controllers.insert(newIndex, controller2);
+                });
+              },
+              children: List.generate(
+                textFieldCount,
+                (index) => ListTile(
+                  key: Key('$index'),
+                  title: Container(
+                    decoration: const BoxDecoration(
+                      color: Colors.white,
+                    ),
+                    width: width,
+                    height: height / 14,
+                    child: Padding(
+                      padding: const EdgeInsets.only(
+                          left: 10, right: 10, bottom: 10),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Expanded(
+                            flex: 3,
+                            child: TextFormField(
+                              controller: textControllers[index],
+                              decoration: const InputDecoration(
+                                hintText: 'Name',
+                              ),
+                            ),
+                          ),
+                          const SizedBox(
+                            width: 5,
+                          ),
+                          Expanded(
+                            flex: 2,
+                            child: TextFormField(
+                              keyboardType: TextInputType.phone,
+                              controller: text2Controllers[index],
+                              decoration: const InputDecoration(
+                                hintText: 'INR0.00',
+                              ),
+                            ),
+                          ),
+                          IconButton(
+                            onPressed: () => removeItem(index),
+                            icon: Padding(
+                              padding: const EdgeInsets.only(top: 10),
+                              child: Image.asset(
+                                'assets/images/close.png',
+                                color: Colors.red,
+                                width: 20,
+                                height: 20,
+                              ),
+                            ),
+                          ),
+                          const Padding(
+                            padding: EdgeInsets.only(top: 10),
+                            child: Icon(
+                              CupertinoIcons.arrow_up_down_circle,
+                              color: Color(0xff5654a2),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+            IconButton(
+              onPressed: () {
+                setState(() {
+                  textFieldCount++;
+                  textControllers.add(
+                    TextEditingController(),
+                  );
+                  text2FieldCount++;
+                  text2Controllers.add(
+                    TextEditingController(),
+                  );
+                });
+              },
+              icon: const Icon(
+                CupertinoIcons.plus_circle_fill,
+                color: Color(0xff5654a2),
+                size: 35,
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
