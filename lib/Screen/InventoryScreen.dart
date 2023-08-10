@@ -8,10 +8,22 @@ class InventoryScreen extends StatefulWidget {
   State<InventoryScreen> createState() => _InventoryScreenState();
 }
 
-final List<Map<String, String>> dataList = [
-  {'title': 'Item 1', 'subtitle': 'Subtitle 1'},
-  {'title': 'Item 2', 'subtitle': 'Subtitle 2'},
-  {'title': 'Item 3', 'subtitle': 'Subtitle 3'},
+final List<Map<String, dynamic>> cardData = [
+  {
+    'icon': 'assets/images/girl.png',
+    'title': 'Pan',
+    'price': 'INR100',
+  },
+  {
+    'icon': 'assets/images/girl.png',
+    'title': 'Cold Drink',
+    'price': 'INR100',
+  },
+  {
+    'icon': 'assets/images/girl.png',
+    'title': 'Wafer',
+    'price': 'INR100',
+  },
 ];
 
 class _InventoryScreenState extends State<InventoryScreen> {
@@ -93,7 +105,7 @@ class _InventoryScreenState extends State<InventoryScreen> {
                     children: [
                       Expanded(
                         child: ListView.builder(
-                          itemCount: dataList.length,
+                          itemCount: cardData.length,
                           itemBuilder: (BuildContext context, int index) {
                             return Padding(
                               padding: const EdgeInsets.only(
@@ -112,26 +124,80 @@ class _InventoryScreenState extends State<InventoryScreen> {
                                         spreadRadius: 1,
                                       ),
                                     ]),
-                                child: const Column(
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Row(
                                       children: [
                                         Padding(
-                                          padding: EdgeInsets.all(8.0),
+                                          padding: const EdgeInsets.all(8.0),
                                           child: CircleAvatar(
                                             backgroundColor: Colors.black,
-                                            radius: 25,
+                                            radius: 22,
+                                            backgroundImage: AssetImage(
+                                                cardData[index]['icon']),
                                           ),
                                         ),
+                                        Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceEvenly,
+                                          children: [
+                                            Text(cardData[index]['title']),
+                                            Text(
+                                              cardData[index]['price'],
+                                              style: const TextStyle(
+                                                  color: Color(0xff5654a2),
+                                                  fontSize: 18),
+                                            ),
+                                          ],
+                                        )
                                       ],
                                     ),
-                                    Padding(
+                                    const Padding(
                                       padding:
                                           EdgeInsets.only(left: 8, right: 8),
                                       child: Divider(
                                         thickness: 2,
                                       ),
                                     ),
+                                    Padding(
+                                      padding: const EdgeInsets.only(left: 8),
+                                      child: Container(
+                                        height:
+                                            MediaQuery.of(context).size.height /
+                                                32,
+                                        width:
+                                            MediaQuery.of(context).size.width /
+                                                5,
+                                        decoration: const BoxDecoration(
+                                          color: Color(0xff5654a2),
+                                        ),
+                                        child: Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          children: [
+                                            const Text(
+                                              '<',
+                                              style: TextStyle(
+                                                  color: Colors.white),
+                                            ),
+                                            Text(
+                                              cardData[index]['price'],
+                                              style: const TextStyle(
+                                                  color: Colors.white),
+                                            ),
+                                            const Text(
+                                              '>',
+                                              style: TextStyle(
+                                                  color: Colors.white),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    )
                                   ],
                                 ),
                               ),
