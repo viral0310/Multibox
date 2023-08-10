@@ -22,7 +22,28 @@ class _ModifierScreenState extends State<ModifierScreen> {
     super.initState();
     textControllers.add(TextEditingController());
     text2Controllers.add(TextEditingController());
+    textControllers = List.generate(
+      items.length,
+      (index) => TextEditingController(text: items[index]),
+    );
+    text2Controllers = List.generate(
+      items.length,
+      (index) => TextEditingController(text: items[index]),
+    );
   }
+
+  void removeItem(int index) {
+    setState(() {
+      text2Controllers[index].dispose();
+      text2Controllers.removeAt(index);
+      textControllers[index].dispose();
+      textControllers.removeAt(index);
+      items.removeAt(index);
+      textFieldCount -= 1;
+    });
+  }
+
+  List<String> items = List.generate(10, (index) => '');
 
   @override
   Widget build(BuildContext context) {
@@ -158,7 +179,82 @@ class _ModifierScreenState extends State<ModifierScreen> {
             child: Row(
               children: [
                 Expanded(
-                  child: ListView.builder(
+                  child: ReorderableListView(
+                    onReorder: (oldIndex, newIndex) {
+                      setState(() {
+                        if (newIndex > oldIndex) {
+                          newIndex -= 1;
+                        }
+                        final String item = items.removeAt(oldIndex);
+                        items.insert(newIndex, item);
+                      });
+                    },
+                    children: List.generate(
+                      textFieldCount,
+                      (index) => ListTile(
+                        key: Key('$index'),
+                        title: Container(
+                          decoration: const BoxDecoration(
+                            color: Colors.white,
+                          ),
+                          width: width,
+                          height: height / 14,
+                          child: Padding(
+                            padding: const EdgeInsets.only(
+                                left: 10, right: 10, bottom: 10),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                Expanded(
+                                  flex: 3,
+                                  child: TextFormField(
+                                    controller: textControllers[index],
+                                    decoration: const InputDecoration(
+                                      hintText: 'Name',
+                                    ),
+                                  ),
+                                ),
+                                const SizedBox(
+                                  width: 5,
+                                ),
+                                Expanded(
+                                  flex: 2,
+                                  child: TextFormField(
+                                    controller: text2Controllers[index],
+                                    decoration: const InputDecoration(
+                                      hintText: 'INR0.00',
+                                    ),
+                                  ),
+                                ),
+                                IconButton(
+                                  onPressed: () => removeItem(index),
+                                  icon: Padding(
+                                    padding: const EdgeInsets.only(top: 10),
+                                    child: Image.asset(
+                                      'assets/images/close.png',
+                                      color: Colors.red,
+                                      width: 20,
+                                      height: 20,
+                                    ),
+                                  ),
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.only(top: 10),
+                                  child: Icon(
+                                    CupertinoIcons.arrow_up_down_circle,
+                                    color: Color(0xff5654a2),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+
+                  /*ListView.builder(
                     itemCount: textFieldCount,
                     itemBuilder: (context, index) {
                       return Padding(
@@ -176,6 +272,7 @@ class _ModifierScreenState extends State<ModifierScreen> {
                               child: Row(
                                 children: [
                                   Expanded(
+                                    flex: 3,
                                     child: TextFormField(
                                       controller: textControllers[index],
                                       decoration: const InputDecoration(
@@ -187,6 +284,7 @@ class _ModifierScreenState extends State<ModifierScreen> {
                                     width: 5,
                                   ),
                                   Expanded(
+                                    flex: 2,
                                     child: TextFormField(
                                       controller: text2Controllers[index],
                                       decoration: const InputDecoration(
@@ -214,6 +312,13 @@ class _ModifierScreenState extends State<ModifierScreen> {
                                       height: 20,
                                     ),
                                   ),
+                                  IconButton(
+                                    onPressed: () {},
+                                    icon: const Icon(
+                                      CupertinoIcons.arrow_up_down_circle,
+                                      color: Color(0xff5654a2),
+                                    ),
+                                  ),
                                 ],
                               ),
                             ),
@@ -221,7 +326,7 @@ class _ModifierScreenState extends State<ModifierScreen> {
                         ),
                       );
                     },
-                  ),
+                  ),*/
                 ),
               ],
             ),

@@ -231,7 +231,72 @@ class _InventoryScreenState extends State<InventoryScreen> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Container(
+                  Expanded(
+                    child: ListView.builder(
+                      itemCount: cardData.length,
+                      itemBuilder: (BuildContext context, int index) {
+                        return Padding(
+                          padding:
+                              const EdgeInsets.only(top: 8, left: 8, right: 8),
+                          child: Container(
+                            width: MediaQuery.of(context).size.width,
+                            height: MediaQuery.of(context).size.height / 15,
+                            decoration:
+                                BoxDecoration(color: Colors.white, boxShadow: [
+                              BoxShadow(
+                                color: Colors.black.withOpacity(0.2),
+                                offset: const Offset(0, 2),
+                                blurRadius: 4,
+                                spreadRadius: 1,
+                              ),
+                            ]),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              children: [
+                                Row(
+                                  children: [
+                                    Padding(
+                                      padding: const EdgeInsets.all(8.0),
+                                      child: CircleAvatar(
+                                        backgroundColor: Colors.black,
+                                        radius: 15,
+                                        backgroundImage:
+                                            AssetImage(cardData[index]['icon']),
+                                      ),
+                                    ),
+                                    Text(cardData[index]['title']),
+                                    const Spacer(),
+                                    IconButton(
+                                      onPressed: () {},
+                                      icon: const Icon(
+                                        CupertinoIcons.delete,
+                                        color: Colors.red,
+                                      ),
+                                    ),
+                                    IconButton(
+                                      onPressed: () {},
+                                      icon: const Icon(
+                                        CupertinoIcons.up_arrow,
+                                        color: Color(0xff5654a2),
+                                      ),
+                                    ),
+                                    IconButton(
+                                      onPressed: () {},
+                                      icon: const Icon(
+                                        CupertinoIcons.down_arrow,
+                                        color: Color(0xff5654a2),
+                                      ),
+                                    )
+                                  ],
+                                ),
+                              ],
+                            ),
+                          ),
+                        );
+                      },
+                    ),
+                  ),
+                  /*Container(
                     height: 110,
                     width: 110,
                     decoration: BoxDecoration(
@@ -246,7 +311,7 @@ class _InventoryScreenState extends State<InventoryScreen> {
                   const Text(
                     "No Category, Please Add one!",
                     style: TextStyle(color: Colors.grey),
-                  ),
+                  ),*/
                 ],
               ),
             ),
