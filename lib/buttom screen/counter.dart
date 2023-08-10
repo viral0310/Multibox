@@ -242,7 +242,79 @@ class _CounterScreenState extends State<CounterScreen> {
                 ),
               ),
             ),
-          )
+          ),
+          SizedBox(
+            height: height / 38,
+          ),
+          Row(
+            children: [
+              Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 8, right: 4),
+                  child: ElevatedButton(
+                    style: const ButtonStyle(
+                      backgroundColor: MaterialStatePropertyAll(
+                        Colors.deepOrangeAccent,
+                      ),
+                    ),
+                    onPressed: () {},
+                    child: const Text(
+                      'CLEAR',
+                      style: TextStyle(color: Colors.white),
+                    ),
+                  ),
+                ),
+              ),
+              Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 4, right: 8),
+                  child: ElevatedButton(
+                    style: const ButtonStyle(
+                      backgroundColor: MaterialStatePropertyAll(
+                        Color(0xffffbf00),
+                      ),
+                    ),
+                    onPressed: () {},
+                    child: const Text(
+                      'SAVE FOR LATER',
+                      style: TextStyle(color: Colors.white),
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
+          const Spacer(),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Container(
+              decoration: BoxDecoration(
+                borderRadius: const BorderRadius.all(
+                  Radius.circular(5),
+                ),
+                color: Colors.green,
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.grey.withOpacity(0.2),
+                    offset: const Offset(0, 2),
+                    blurRadius: 4,
+                    spreadRadius: 2,
+                  ),
+                ],
+              ),
+              width: width,
+              height: height / 15,
+              child: const Center(
+                child: Text(
+                  "CHARGE : INR200.00",
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 20,
+                      fontWeight: FontWeight.w600),
+                ),
+              ),
+            ),
+          ),
           /*Padding(
             padding: const EdgeInsets.only(left: 15, right: 15, top: 10),
             child: GestureDetector(

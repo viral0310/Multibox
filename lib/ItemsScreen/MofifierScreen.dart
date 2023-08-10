@@ -43,7 +43,7 @@ class _ModifierScreenState extends State<ModifierScreen> {
     });
   }
 
-  List<String> items = List.generate(10, (index) => '');
+  List<String> items = List.generate(50, (index) => '');
 
   @override
   Widget build(BuildContext context) {
