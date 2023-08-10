@@ -317,10 +317,65 @@ class _InventoryScreenState extends State<InventoryScreen> {
             ),
             Center(
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Container(
+                  Padding(
+                    padding: const EdgeInsets.only(top: 8, left: 8, right: 8),
+                    child: Container(
+                      width: MediaQuery.of(context).size.width,
+                      height: MediaQuery.of(context).size.height / 13.3,
+                      decoration:
+                          BoxDecoration(color: Colors.white, boxShadow: [
+                        BoxShadow(
+                          color: Colors.black.withOpacity(0.2),
+                          offset: const Offset(0, 2),
+                          blurRadius: 4,
+                          spreadRadius: 1,
+                        ),
+                      ]),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          const Expanded(
+                            child: Padding(
+                              padding: EdgeInsets.only(left: 10, right: 10),
+                              child: ListTile(
+                                contentPadding: EdgeInsets.zero,
+                                title: Text(
+                                  'Divyang',
+                                  style: TextStyle(
+                                    color: Color(0xff5654a2),
+                                    fontSize: 18,
+                                  ),
+                                ),
+                                subtitle: Text('Yash , Karan , Vivek'),
+                              ),
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(top: 8),
+                            child: IconButton(
+                              onPressed: () {},
+                              icon: const Icon(
+                                CupertinoIcons.up_arrow,
+                                color: Color(0xff5654a2),
+                              ),
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(top: 8),
+                            child: IconButton(
+                              onPressed: () {},
+                              icon: const Icon(
+                                CupertinoIcons.down_arrow,
+                                color: Color(0xff5654a2),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  /*Container(
                     height: 110,
                     width: 110,
                     decoration: BoxDecoration(
@@ -335,16 +390,62 @@ class _InventoryScreenState extends State<InventoryScreen> {
                   const Text(
                     "No Modifiers, Please Add one!",
                     style: TextStyle(color: Colors.grey),
-                  ),
+                  ),*/
                 ],
               ),
             ),
             Center(
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Container(
+                  Padding(
+                    padding: const EdgeInsets.only(top: 8, left: 8, right: 8),
+                    child: Container(
+                      width: MediaQuery.of(context).size.width,
+                      height: MediaQuery.of(context).size.height / 13.3,
+                      decoration:
+                          BoxDecoration(color: Colors.white, boxShadow: [
+                        BoxShadow(
+                          color: Colors.black.withOpacity(0.2),
+                          offset: const Offset(0, 2),
+                          blurRadius: 4,
+                          spreadRadius: 1,
+                        ),
+                      ]),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          const Expanded(
+                            child: Padding(
+                              padding: EdgeInsets.only(left: 10, right: 10),
+                              child: ListTile(
+                                contentPadding: EdgeInsets.zero,
+                                title: Text(
+                                  'Pan',
+                                  style: TextStyle(
+                                    color: Color(0xff5654a2),
+                                    fontSize: 18,
+                                  ),
+                                ),
+                                subtitle: Text('10.00'),
+                              ),
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(top: 8),
+                            child: IconButton(
+                              onPressed: () {},
+                              icon: const Icon(
+                                CupertinoIcons.arrow_right,
+                                color: Color(0xff5654a2),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+
+                  /* Container(
                     height: 110,
                     width: 110,
                     decoration: BoxDecoration(
@@ -359,7 +460,7 @@ class _InventoryScreenState extends State<InventoryScreen> {
                   const Text(
                     "No Ingredients, Please Add one!",
                     style: TextStyle(color: Colors.grey),
-                  ),
+                  ),*/
                 ],
               ),
             ),
