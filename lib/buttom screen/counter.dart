@@ -287,30 +287,40 @@ class _CounterScreenState extends State<CounterScreen> {
           const Spacer(),
           Padding(
             padding: const EdgeInsets.all(8.0),
-            child: Container(
-              decoration: BoxDecoration(
-                borderRadius: const BorderRadius.all(
-                  Radius.circular(5),
-                ),
-                color: Colors.green,
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.grey.withOpacity(0.2),
-                    offset: const Offset(0, 2),
-                    blurRadius: 4,
-                    spreadRadius: 2,
+            child: GestureDetector(
+              onTap: () {
+                showModalBottomSheet(
+                  context: context,
+                  builder: (BuildContext context) {
+                    return CustomBottomSheet();
+                  },
+                );
+              },
+              child: Container(
+                decoration: BoxDecoration(
+                  borderRadius: const BorderRadius.all(
+                    Radius.circular(5),
                   ),
-                ],
-              ),
-              width: width,
-              height: height / 15,
-              child: const Center(
-                child: Text(
-                  "CHARGE : INR200.00",
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 20,
-                      fontWeight: FontWeight.w600),
+                  color: Colors.green,
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.2),
+                      offset: const Offset(0, 2),
+                      blurRadius: 4,
+                      spreadRadius: 2,
+                    ),
+                  ],
+                ),
+                width: width,
+                height: height / 15,
+                child: const Center(
+                  child: Text(
+                    "CHARGE : INR200.00",
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 20,
+                        fontWeight: FontWeight.w600),
+                  ),
                 ),
               ),
             ),
@@ -384,6 +394,39 @@ class _CounterScreenState extends State<CounterScreen> {
               color: Color(0xff000000),
             ),
           ),*/
+        ],
+      ),
+    );
+  }
+}
+
+class CustomBottomSheet extends StatefulWidget {
+  @override
+  _CustomBottomSheetState createState() => _CustomBottomSheetState();
+}
+
+class _CustomBottomSheetState extends State<CustomBottomSheet> {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      color: Colors.transparent,
+      child: Column(
+        children: [
+          Container(
+            height: 30,
+            width: MediaQuery.of(context).size.width,
+            decoration: BoxDecoration(color: Colors.grey.shade400),
+            child: const Center(
+              child: Text(
+                'CUSTOMER DETAILS(OPTIONAL)',
+                style: TextStyle(
+                  color: Color(0xff5654a2),
+                  fontSize: 18,
+                  fontWeight: FontWeight.w500,
+                ),
+              ),
+            ),
+          ),
         ],
       ),
     );
