@@ -448,6 +448,15 @@ class _AddItemScreenState extends State<AddItemScreen> {
                           backgroundImage:
                               _image != null ? FileImage(_image!) : null,
                           radius: 50,
+                          child: (_image != null)
+                              ? const Text("")
+                              : const Text(
+                                  "ADD IMAGE",
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 16,
+                                  ),
+                                ),
                         ),
                       ),
                       const SizedBox(
