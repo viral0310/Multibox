@@ -344,8 +344,7 @@ class _AddItemScreenState extends State<AddItemScreen> {
                 child: const TabBar(
                   indicatorColor: Color(0xff5654a2),
                   indicator: BoxDecoration(
-                    color: Color(
-                        0xff5654a2), // Set the background color of the tabs
+                    color: Color(0xff5654a2),
                   ),
                   labelColor: Colors.white,
                   indicatorSize: TabBarIndicatorSize.tab,
