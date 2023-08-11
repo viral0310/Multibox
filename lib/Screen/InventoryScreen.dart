@@ -98,130 +98,101 @@ class _InventoryScreenState extends State<InventoryScreen> {
                   ),
                   child: ChipSelectionWidget(),
                 ),
-                Expanded(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Expanded(
-                        child: ListView.builder(
-                          itemCount: cardData.length,
-                          itemBuilder: (BuildContext context, int index) {
-                            return Padding(
-                              padding: const EdgeInsets.only(
-                                  top: 8, left: 8, right: 8),
-                              child: Container(
-                                width: MediaQuery.of(context).size.width,
-                                height:
-                                    MediaQuery.of(context).size.height / 7.2,
-                                decoration: BoxDecoration(
-                                    color: Colors.white,
-                                    boxShadow: [
-                                      BoxShadow(
-                                        color: Colors.black.withOpacity(0.2),
-                                        offset: const Offset(0, 2),
-                                        blurRadius: 4,
-                                        spreadRadius: 1,
-                                      ),
-                                    ]),
-                                child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Row(
-                                      children: [
-                                        Padding(
-                                          padding: const EdgeInsets.all(8.0),
-                                          child: CircleAvatar(
-                                            backgroundColor: Colors.black,
-                                            radius: 22,
-                                            backgroundImage: AssetImage(
-                                                cardData[index]['icon']),
-                                          ),
-                                        ),
-                                        Column(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceEvenly,
-                                          children: [
-                                            Text(cardData[index]['title']),
-                                            Text(
-                                              cardData[index]['price'],
-                                              style: const TextStyle(
-                                                  color: Color(0xff5654a2),
-                                                  fontSize: 18),
-                                            ),
-                                          ],
-                                        )
-                                      ],
+                GestureDetector(
+                  onTap: () {
+                    Navigator.of(context).pushNamed('/AddItemScreen');
+                  },
+                  child: ListView.builder(
+                    shrinkWrap: true,
+                    itemCount: cardData.length,
+                    itemBuilder: (BuildContext context, int index) {
+                      return Padding(
+                        padding:
+                            const EdgeInsets.only(top: 8, left: 8, right: 8),
+                        child: Container(
+                          width: MediaQuery.of(context).size.width,
+                          height: MediaQuery.of(context).size.height / 7.2,
+                          decoration:
+                              BoxDecoration(color: Colors.white, boxShadow: [
+                            BoxShadow(
+                              color: Colors.black.withOpacity(0.2),
+                              offset: const Offset(0, 2),
+                              blurRadius: 4,
+                              spreadRadius: 1,
+                            ),
+                          ]),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Row(
+                                children: [
+                                  Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: CircleAvatar(
+                                      backgroundColor: Colors.black,
+                                      radius: 22,
+                                      backgroundImage:
+                                          AssetImage(cardData[index]['icon']),
                                     ),
-                                    const Padding(
-                                      padding:
-                                          EdgeInsets.only(left: 8, right: 8),
-                                      child: Divider(
-                                        thickness: 2,
+                                  ),
+                                  Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceEvenly,
+                                    children: [
+                                      Text(cardData[index]['title']),
+                                      Text(
+                                        cardData[index]['price'],
+                                        style: const TextStyle(
+                                            color: Color(0xff5654a2),
+                                            fontSize: 18),
                                       ),
-                                    ),
-                                    Padding(
-                                      padding: const EdgeInsets.only(left: 8),
-                                      child: Container(
-                                        height:
-                                            MediaQuery.of(context).size.height /
-                                                32,
-                                        width:
-                                            MediaQuery.of(context).size.width /
-                                                5,
-                                        decoration: const BoxDecoration(
-                                          color: Color(0xff5654a2),
-                                        ),
-                                        child: Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.center,
-                                          children: [
-                                            const Text(
-                                              '<',
-                                              style: TextStyle(
-                                                  color: Colors.white),
-                                            ),
-                                            Text(
-                                              cardData[index]['price'],
-                                              style: const TextStyle(
-                                                  color: Colors.white),
-                                            ),
-                                            const Text(
-                                              '>',
-                                              style: TextStyle(
-                                                  color: Colors.white),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                    )
-                                  ],
+                                    ],
+                                  )
+                                ],
+                              ),
+                              const Padding(
+                                padding: EdgeInsets.only(left: 8, right: 8),
+                                child: Divider(
+                                  thickness: 2,
                                 ),
                               ),
-                            );
-                          },
-                        ),
-                      ),
-                      /* Container(
-                        height: 110,
-                        width: 110,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(250),
-                          image: const DecorationImage(
-                            fit: BoxFit.fill,
-                            image: AssetImage('assets/images/girl.png'),
+                              Padding(
+                                padding: const EdgeInsets.only(left: 8),
+                                child: Container(
+                                  height:
+                                      MediaQuery.of(context).size.height / 32,
+                                  width: MediaQuery.of(context).size.width / 5,
+                                  decoration: const BoxDecoration(
+                                    color: Color(0xff5654a2),
+                                  ),
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      const Text(
+                                        '<',
+                                        style: TextStyle(color: Colors.white),
+                                      ),
+                                      Text(
+                                        cardData[index]['price'],
+                                        style: const TextStyle(
+                                            color: Colors.white),
+                                      ),
+                                      const Text(
+                                        '>',
+                                        style: TextStyle(color: Colors.white),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              )
+                            ],
                           ),
                         ),
-                      ),
-                      const SizedBox(height: 15),
-                      const Text(
-                        "No Items, Please Add one!",
-                        style: TextStyle(color: Colors.grey),
-                      ),*/
-                    ],
+                      );
+                    },
                   ),
                 ),
               ],
