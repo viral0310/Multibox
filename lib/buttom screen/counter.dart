@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../Screen/HomeScreens/DrawerScreens.dart';
 
@@ -51,7 +52,36 @@ class _CounterScreenState extends State<CounterScreen> {
               child: Column(
                 children: [
                   GestureDetector(
-                    onTap: () {},
+                    onTap: () {
+                      Get.bottomSheet(
+                        isScrollControlled: true,
+                        Container(
+                          color: Colors.grey.shade300,
+                          child: Column(
+                            children: [
+                              Container(
+                                height: height / 17,
+                                width: width,
+                                decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  borderRadius: const BorderRadius.all(
+                                    Radius.circular(6),
+                                  ),
+                                  boxShadow: [
+                                    BoxShadow(
+                                      color: Colors.grey.withOpacity(0.2),
+                                      offset: const Offset(0, 2),
+                                      blurRadius: 4,
+                                      spreadRadius: 2,
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      );
+                    },
                     child: const ListTile(
                       title: Text(
                         "Pan",
@@ -438,3 +468,19 @@ class _CustomBottomSheetState extends State<CustomBottomSheet> {
     );
   }
 }
+
+// void _openBottomSheet(BuildContext context) {
+//   showBottomSheet(
+//     backgroundColor: Colors.white,
+//     context: context,
+//     builder: (BuildContext context) {
+//       return Container(
+//         color: Colors.white,
+//         height: 600,
+//         child: const Column(
+//           children: [],
+//         ),
+//       );
+//     },
+//   );
+// }

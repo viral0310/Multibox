@@ -244,8 +244,8 @@ class _ModifierScreenState extends State<ModifierScreen> {
                               child: Image.asset(
                                 'assets/images/close.png',
                                 color: Colors.red,
-                                width: 20,
-                                height: 20,
+                                width: 17,
+                                height: 17,
                               ),
                             ),
                           ),

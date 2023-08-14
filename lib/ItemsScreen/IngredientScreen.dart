@@ -410,7 +410,7 @@ class _IngredientScreenState extends State<IngredientScreen> {
                 width: width,
                 height: height / 14,
                 child: Padding(
-                  padding: const EdgeInsets.only(top: 12, left: 12),
+                  padding: const EdgeInsets.only(top: 8, left: 12),
                   child: TextField(
                     keyboardType: TextInputType.phone,
                     textAlign: TextAlign.center,
@@ -477,7 +477,7 @@ class _IngredientScreenState extends State<IngredientScreen> {
                   width: width,
                   height: height / 14,
                   child: Padding(
-                    padding: const EdgeInsets.only(top: 12, left: 12),
+                    padding: const EdgeInsets.only(top: 8, left: 12),
                     child: TextField(
                       controller: notesEditingController,
                       cursorColor: const Color(0xff5654a2),
