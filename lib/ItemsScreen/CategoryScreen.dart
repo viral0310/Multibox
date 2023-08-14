@@ -114,6 +114,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
             padding: const EdgeInsets.all(10.0),
             child: Container(
               decoration: BoxDecoration(
+                borderRadius: const BorderRadius.all(Radius.circular(8)),
                 color: Colors.white,
                 boxShadow: [
                   BoxShadow(

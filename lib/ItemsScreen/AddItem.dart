@@ -92,7 +92,7 @@ class _AddItemScreenState extends State<AddItemScreen> {
                 style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.red,
                     shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(0))),
+                        borderRadius: BorderRadius.circular(5))),
                 onPressed: () {},
                 child: const Text(
                   'DELETE',
@@ -133,7 +133,7 @@ class _AddItemScreenState extends State<AddItemScreen> {
                 style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.green,
                     shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(0))),
+                        borderRadius: BorderRadius.circular(5))),
                 onPressed: () {},
                 child: const Text(
                   'SAVE',
@@ -154,6 +154,7 @@ class _AddItemScreenState extends State<AddItemScreen> {
             ),
             Container(
               decoration: BoxDecoration(
+                borderRadius: const BorderRadius.all(Radius.circular(8)),
                 color: Colors.white,
                 boxShadow: [
                   BoxShadow(
@@ -225,6 +226,7 @@ class _AddItemScreenState extends State<AddItemScreen> {
               width: width,
               height: height / 14,
               decoration: BoxDecoration(
+                borderRadius: const BorderRadius.all(Radius.circular(8)),
                 color: Colors.white,
                 boxShadow: [
                   BoxShadow(
@@ -304,6 +306,7 @@ class _AddItemScreenState extends State<AddItemScreen> {
             ),
             Container(
               decoration: BoxDecoration(
+                borderRadius: const BorderRadius.all(Radius.circular(8)),
                 color: Colors.white,
                 boxShadow: [
                   BoxShadow(
@@ -340,10 +343,14 @@ class _AddItemScreenState extends State<AddItemScreen> {
               child: Container(
                 height: height / 14,
                 width: width,
-                decoration: const BoxDecoration(color: Colors.white),
+                decoration: const BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.all(Radius.circular(8)),
+                ),
                 child: const TabBar(
                   indicatorColor: Color(0xff5654a2),
                   indicator: BoxDecoration(
+                    borderRadius: BorderRadius.all(Radius.circular(8)),
                     color: Color(0xff5654a2),
                   ),
                   labelColor: Colors.white,
@@ -367,6 +374,8 @@ class _AddItemScreenState extends State<AddItemScreen> {
                     children: [
                       Container(
                         decoration: BoxDecoration(
+                          borderRadius:
+                              const BorderRadius.all(Radius.circular(8)),
                           color: Colors.white,
                           boxShadow: [
                             BoxShadow(

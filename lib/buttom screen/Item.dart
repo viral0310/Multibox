@@ -62,7 +62,7 @@ class _ItemScreenState extends State<ItemScreen> {
                     child: SearchBar(
                       shape: MaterialStateProperty.all(
                         const BeveledRectangleBorder(
-                            borderRadius: BorderRadius.zero),
+                            borderRadius: BorderRadius.all(Radius.circular(5))),
                       ),
                       leading: const Icon(
                         Icons.search_rounded,
@@ -94,46 +94,49 @@ class _ItemScreenState extends State<ItemScreen> {
             ),
           ),
           Expanded(
-            child: GridView.builder(
-              itemCount: cardData.length,
-              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 3,
-                childAspectRatio: 2 / 3,
-              ),
-              itemBuilder: (BuildContext context, int index) {
-                return cardData[index]['type'] != null &&
-                        cardData[index]['type'] == 'add'
-                    ? GestureDetector(
-                        onTap: () {
-                          Navigator.of(context).pushNamed('/InventoryScreen');
-                        },
-                        child: const Card(
-                          elevation: 4,
-                          child: Padding(
-                            padding: EdgeInsets.all(8.0),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Icon(
-                                  Icons.add_circle,
-                                  color: Color(0xff5654a2),
-                                  size: 35,
-                                ),
-                                SizedBox(height: 8),
-                                Text('Add New'),
-                                Text('Item'),
-                              ],
+            child: Padding(
+              padding: const EdgeInsets.only(left: 8, right: 8, top: 6),
+              child: GridView.builder(
+                itemCount: cardData.length,
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 3,
+                  childAspectRatio: 2 / 3,
+                ),
+                itemBuilder: (BuildContext context, int index) {
+                  return cardData[index]['type'] != null &&
+                          cardData[index]['type'] == 'add'
+                      ? GestureDetector(
+                          onTap: () {
+                            Navigator.of(context).pushNamed('/InventoryScreen');
+                          },
+                          child: const Card(
+                            elevation: 4,
+                            child: Padding(
+                              padding: EdgeInsets.all(8.0),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Icon(
+                                    Icons.add_circle,
+                                    color: Color(0xff5654a2),
+                                    size: 35,
+                                  ),
+                                  SizedBox(height: 8),
+                                  Text('Add New'),
+                                  Text('Item'),
+                                ],
+                              ),
                             ),
                           ),
-                        ),
-                      )
-                    : CardWidget(
-                        icon: cardData[index]['icon'],
-                        title: cardData[index]['title'],
-                        price: cardData[index]['price'],
-                      );
-              },
+                        )
+                      : CardWidget(
+                          icon: cardData[index]['icon'],
+                          title: cardData[index]['title'],
+                          price: cardData[index]['price'],
+                        );
+                },
+              ),
             ),
           ),
           /*Expanded(

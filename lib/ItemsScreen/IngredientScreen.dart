@@ -117,6 +117,7 @@ class _IngredientScreenState extends State<IngredientScreen> {
               padding: const EdgeInsets.all(10.0),
               child: Container(
                 decoration: BoxDecoration(
+                  borderRadius: const BorderRadius.all(Radius.circular(8)),
                   color: Colors.white,
                   boxShadow: [
                     BoxShadow(
@@ -208,6 +209,10 @@ class _IngredientScreenState extends State<IngredientScreen> {
                         width: width / 2.12,
                         height: height / 14,
                         decoration: BoxDecoration(
+                          borderRadius: const BorderRadius.only(
+                            bottomLeft: Radius.circular(8),
+                            topLeft: Radius.circular(8),
+                          ),
                           color: selctedcolour == true
                               ? Colors.green
                               : Colors.white,
@@ -235,6 +240,9 @@ class _IngredientScreenState extends State<IngredientScreen> {
                       child: Container(
                         width: width / 2.12,
                         decoration: BoxDecoration(
+                          borderRadius: const BorderRadius.only(
+                              bottomRight: Radius.circular(8),
+                              topRight: Radius.circular(8)),
                           color: selctedcolour == false
                               ? Colors.red
                               : Colors.white,
@@ -243,6 +251,9 @@ class _IngredientScreenState extends State<IngredientScreen> {
                           width: width / 2.12,
                           height: height / 14,
                           decoration: BoxDecoration(
+                            borderRadius: const BorderRadius.only(
+                                bottomRight: Radius.circular(8),
+                                topRight: Radius.circular(8)),
                             color: selctedcolour == false
                                 ? Colors.red
                                 : Colors.white,
@@ -276,6 +287,8 @@ class _IngredientScreenState extends State<IngredientScreen> {
                     padding: const EdgeInsets.only(left: 10, right: 2),
                     child: Container(
                       decoration: BoxDecoration(
+                        borderRadius:
+                            const BorderRadius.all(Radius.circular(8)),
                         color: Colors.white,
                         boxShadow: [
                           BoxShadow(
@@ -316,6 +329,8 @@ class _IngredientScreenState extends State<IngredientScreen> {
                     padding: const EdgeInsets.only(left: 2, right: 10),
                     child: Container(
                       decoration: BoxDecoration(
+                        borderRadius:
+                            const BorderRadius.all(Radius.circular(8)),
                         color: Colors.white,
                         boxShadow: [
                           BoxShadow(
@@ -381,6 +396,7 @@ class _IngredientScreenState extends State<IngredientScreen> {
               padding: const EdgeInsets.only(left: 10, right: 10, top: 5),
               child: Container(
                 decoration: BoxDecoration(
+                  borderRadius: const BorderRadius.all(Radius.circular(8)),
                   color: Colors.white,
                   boxShadow: [
                     BoxShadow(
@@ -447,6 +463,7 @@ class _IngredientScreenState extends State<IngredientScreen> {
                 padding: const EdgeInsets.only(left: 10, right: 10, top: 5),
                 child: Container(
                   decoration: BoxDecoration(
+                    borderRadius: const BorderRadius.all(Radius.circular(8)),
                     color: Colors.white,
                     boxShadow: [
                       BoxShadow(

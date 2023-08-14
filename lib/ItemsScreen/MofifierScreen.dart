@@ -109,6 +109,7 @@ class _ModifierScreenState extends State<ModifierScreen> {
               padding: const EdgeInsets.all(10.0),
               child: Container(
                 decoration: BoxDecoration(
+                  borderRadius: const BorderRadius.all(Radius.circular(8)),
                   color: Colors.white,
                   boxShadow: [
                     BoxShadow(
@@ -202,6 +203,7 @@ class _ModifierScreenState extends State<ModifierScreen> {
                   key: Key('$index'),
                   title: Container(
                     decoration: const BoxDecoration(
+                      borderRadius: BorderRadius.all(Radius.circular(8)),
                       color: Colors.white,
                     ),
                     width: width,

@@ -87,6 +87,9 @@ class _InventoryScreenState extends State<InventoryScreen> {
                   height: MediaQuery.of(context).size.height / 15,
                   decoration: BoxDecoration(
                     color: Colors.white,
+                    borderRadius: const BorderRadius.only(
+                        bottomLeft: Radius.circular(8),
+                        bottomRight: Radius.circular(8)),
                     boxShadow: [
                       BoxShadow(
                         color: Colors.black.withOpacity(0.2),
@@ -112,15 +115,19 @@ class _InventoryScreenState extends State<InventoryScreen> {
                         child: Container(
                           width: MediaQuery.of(context).size.width,
                           height: MediaQuery.of(context).size.height / 7.2,
-                          decoration:
-                              BoxDecoration(color: Colors.white, boxShadow: [
-                            BoxShadow(
-                              color: Colors.black.withOpacity(0.2),
-                              offset: const Offset(0, 2),
-                              blurRadius: 4,
-                              spreadRadius: 1,
-                            ),
-                          ]),
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.black.withOpacity(0.2),
+                                offset: const Offset(0, 2),
+                                blurRadius: 4,
+                                spreadRadius: 1,
+                              ),
+                            ],
+                            borderRadius:
+                                const BorderRadius.all(Radius.circular(8)),
+                          ),
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.start,
                             crossAxisAlignment: CrossAxisAlignment.start,
@@ -171,18 +178,10 @@ class _InventoryScreenState extends State<InventoryScreen> {
                                   child: Row(
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
-                                      const Text(
-                                        '<',
-                                        style: TextStyle(color: Colors.white),
-                                      ),
                                       Text(
-                                        cardData[index]['price'],
+                                        '<${cardData[index]['price']}>',
                                         style: const TextStyle(
                                             color: Colors.white),
-                                      ),
-                                      const Text(
-                                        '>',
-                                        style: TextStyle(color: Colors.white),
                                       ),
                                     ],
                                   ),
@@ -212,15 +211,19 @@ class _InventoryScreenState extends State<InventoryScreen> {
                           child: Container(
                             width: MediaQuery.of(context).size.width,
                             height: MediaQuery.of(context).size.height / 15,
-                            decoration:
-                                BoxDecoration(color: Colors.white, boxShadow: [
-                              BoxShadow(
-                                color: Colors.black.withOpacity(0.2),
-                                offset: const Offset(0, 2),
-                                blurRadius: 4,
-                                spreadRadius: 1,
-                              ),
-                            ]),
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.black.withOpacity(0.2),
+                                  offset: const Offset(0, 2),
+                                  blurRadius: 4,
+                                  spreadRadius: 1,
+                                ),
+                              ],
+                              borderRadius:
+                                  const BorderRadius.all(Radius.circular(8)),
+                            ),
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.spaceAround,
                               children: [
@@ -294,15 +297,19 @@ class _InventoryScreenState extends State<InventoryScreen> {
                     child: Container(
                       width: MediaQuery.of(context).size.width,
                       height: MediaQuery.of(context).size.height / 13.3,
-                      decoration:
-                          BoxDecoration(color: Colors.white, boxShadow: [
-                        BoxShadow(
-                          color: Colors.black.withOpacity(0.2),
-                          offset: const Offset(0, 2),
-                          blurRadius: 4,
-                          spreadRadius: 1,
-                        ),
-                      ]),
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.black.withOpacity(0.2),
+                            offset: const Offset(0, 2),
+                            blurRadius: 4,
+                            spreadRadius: 1,
+                          ),
+                        ],
+                        borderRadius:
+                            const BorderRadius.all(Radius.circular(8)),
+                      ),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
@@ -373,15 +380,18 @@ class _InventoryScreenState extends State<InventoryScreen> {
                     child: Container(
                       width: MediaQuery.of(context).size.width,
                       height: MediaQuery.of(context).size.height / 13.3,
-                      decoration:
-                          BoxDecoration(color: Colors.white, boxShadow: [
-                        BoxShadow(
-                          color: Colors.black.withOpacity(0.2),
-                          offset: const Offset(0, 2),
-                          blurRadius: 4,
-                          spreadRadius: 1,
-                        ),
-                      ]),
+                      decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius:
+                              const BorderRadius.all(Radius.circular(8)),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.black.withOpacity(0.2),
+                              offset: const Offset(0, 2),
+                              blurRadius: 4,
+                              spreadRadius: 1,
+                            ),
+                          ]),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
