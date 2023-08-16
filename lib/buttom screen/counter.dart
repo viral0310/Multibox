@@ -59,6 +59,7 @@ class _CounterScreenState extends State<CounterScreen> {
                   GestureDetector(
                     onTap: () {
                       showModalBottomSheet(
+                        isScrollControlled: true,
                         useSafeArea: true,
                         context: context,
                         builder: (c) {
@@ -440,6 +441,7 @@ class _CounterScreenState extends State<CounterScreen> {
                   GestureDetector(
                     onTap: () {
                       showModalBottomSheet(
+                        isScrollControlled: true,
                         useSafeArea: true,
                         context: context,
                         builder: (c) {
@@ -748,8 +750,9 @@ class _CounterScreenState extends State<CounterScreen> {
                                                   const Text(
                                                     'Give as Free',
                                                     style: TextStyle(
-                                                        fontWeight:
-                                                            FontWeight.w600),
+                                                      fontWeight:
+                                                          FontWeight.w600,
+                                                    ),
                                                   ),
                                                 ],
                                               ),
@@ -768,8 +771,9 @@ class _CounterScreenState extends State<CounterScreen> {
                                                   const Text(
                                                     'Give as Gift',
                                                     style: TextStyle(
-                                                        fontWeight:
-                                                            FontWeight.w600),
+                                                      fontWeight:
+                                                          FontWeight.w600,
+                                                    ),
                                                   ),
                                                 ],
                                               ),
