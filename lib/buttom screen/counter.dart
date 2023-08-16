@@ -1,5 +1,5 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 import '../Screen/HomeScreens/DrawerScreens.dart';
 
@@ -10,7 +10,12 @@ class CounterScreen extends StatefulWidget {
   State<CounterScreen> createState() => _CounterScreenState();
 }
 
+bool gift = false;
+bool free = false;
+
 class _CounterScreenState extends State<CounterScreen> {
+  int itemCount = 1;
+
   @override
   Widget build(BuildContext context) {
     var width = MediaQuery.of(context).size.width;
@@ -53,33 +58,351 @@ class _CounterScreenState extends State<CounterScreen> {
                 children: [
                   GestureDetector(
                     onTap: () {
-                      Get.bottomSheet(
-                        isScrollControlled: true,
-                        Container(
-                          color: Colors.grey.shade300,
-                          child: Column(
-                            children: [
-                              Container(
-                                height: height / 17,
-                                width: width,
-                                decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  borderRadius: const BorderRadius.all(
-                                    Radius.circular(6),
-                                  ),
-                                  boxShadow: [
-                                    BoxShadow(
-                                      color: Colors.grey.withOpacity(0.2),
-                                      offset: const Offset(0, 2),
-                                      blurRadius: 4,
-                                      spreadRadius: 2,
+                      showModalBottomSheet(
+                        useSafeArea: true,
+                        context: context,
+                        builder: (c) {
+                          return StatefulBuilder(
+                            builder: (BuildContext context, setSState) =>
+                                Container(
+                              color: Colors.grey.shade300,
+                              child: Column(
+                                children: [
+                                  Container(
+                                    height: height / 17,
+                                    width: width,
+                                    decoration: BoxDecoration(
+                                      color: Colors.white,
+                                      borderRadius: const BorderRadius.all(
+                                        Radius.circular(6),
+                                      ),
+                                      boxShadow: [
+                                        BoxShadow(
+                                          color: Colors.grey.withOpacity(0.2),
+                                          offset: const Offset(0, 2),
+                                          blurRadius: 4,
+                                          spreadRadius: 2,
+                                        ),
+                                      ],
                                     ),
-                                  ],
-                                ),
+                                    child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceAround,
+                                      children: [
+                                        ElevatedButton(
+                                          onPressed: () {},
+                                          style: const ButtonStyle(
+                                            backgroundColor:
+                                                MaterialStatePropertyAll(
+                                              Colors.red,
+                                            ),
+                                          ),
+                                          child: const Text(
+                                            'REMOVE',
+                                            style: TextStyle(
+                                              color: Colors.white,
+                                            ),
+                                          ),
+                                        ),
+                                        const Text(
+                                          'PAN',
+                                          style: TextStyle(
+                                            color: Color(0xff5654a2),
+                                            fontWeight: FontWeight.w600,
+                                            fontSize: 20,
+                                          ),
+                                        ),
+                                        ElevatedButton(
+                                          onPressed: () {},
+                                          style: const ButtonStyle(
+                                            backgroundColor:
+                                                MaterialStatePropertyAll(
+                                              Colors.green,
+                                            ),
+                                          ),
+                                          child: const Text(
+                                            'UPDATE',
+                                            style: TextStyle(
+                                              color: Colors.white,
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.only(top: 8),
+                                    child: Container(
+                                      width: width,
+                                      height: height / 15,
+                                      decoration: BoxDecoration(
+                                        color: Colors.white,
+                                        borderRadius: const BorderRadius.all(
+                                          Radius.circular(6),
+                                        ),
+                                        boxShadow: [
+                                          BoxShadow(
+                                            color: Colors.grey.withOpacity(0.2),
+                                            offset: const Offset(0, 2),
+                                            blurRadius: 4,
+                                            spreadRadius: 2,
+                                          ),
+                                        ],
+                                      ),
+                                      child: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceAround,
+                                        children: [
+                                          IconButton(
+                                            onPressed: () {
+                                              if (itemCount > 0) {
+                                                setSState(() {
+                                                  itemCount = itemCount - 1;
+                                                });
+                                              }
+                                            },
+                                            icon: const Icon(
+                                              CupertinoIcons.minus,
+                                              color: Color(0xff5654a2),
+                                              size: 25,
+                                            ),
+                                          ),
+                                          Container(
+                                            height: 30,
+                                            width: 80,
+                                            decoration: BoxDecoration(
+                                              border: Border.all(
+                                                color: const Color(0xff5654a2),
+                                              ),
+                                              borderRadius:
+                                                  const BorderRadius.all(
+                                                Radius.circular(5),
+                                              ),
+                                            ),
+                                            child: Center(
+                                              child: Text('$itemCount'),
+                                            ),
+                                          ),
+                                          IconButton(
+                                            onPressed: () {
+                                              setSState(() {
+                                                itemCount = itemCount + 1;
+                                              });
+                                            },
+                                            icon: const Icon(
+                                              CupertinoIcons.plus,
+                                              color: Color(0xff5654a2),
+                                              size: 25,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.only(top: 8),
+                                    child: Container(
+                                      width: width,
+                                      height: height / 13,
+                                      decoration: BoxDecoration(
+                                        color: Colors.white,
+                                        borderRadius: const BorderRadius.all(
+                                          Radius.circular(6),
+                                        ),
+                                        boxShadow: [
+                                          BoxShadow(
+                                            color: Colors.grey.withOpacity(0.2),
+                                            offset: const Offset(0, 2),
+                                            blurRadius: 4,
+                                            spreadRadius: 2,
+                                          ),
+                                        ],
+                                      ),
+                                      child: const Column(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceAround,
+                                        children: [
+                                          Text(
+                                            'Enter Price',
+                                            style: TextStyle(
+                                              color: Color(0xff5654a2),
+                                            ),
+                                          ),
+                                          Text(
+                                            '100',
+                                            style: TextStyle(
+                                              fontWeight: FontWeight.w600,
+                                              fontSize: 18,
+                                              color: Colors.grey,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.only(top: 8),
+                                    child: Container(
+                                      width: width,
+                                      height: height / 17,
+                                      decoration: BoxDecoration(
+                                        color: Colors.white,
+                                        borderRadius: const BorderRadius.all(
+                                          Radius.circular(6),
+                                        ),
+                                        boxShadow: [
+                                          BoxShadow(
+                                            color: Colors.grey.withOpacity(0.2),
+                                            offset: const Offset(0, 2),
+                                            blurRadius: 4,
+                                            spreadRadius: 2,
+                                          ),
+                                        ],
+                                      ),
+                                      child: Padding(
+                                        padding: const EdgeInsets.only(
+                                            left: 28, right: 15),
+                                        child: Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceAround,
+                                          children: [
+                                            const Column(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.spaceAround,
+                                              children: [
+                                                Text(
+                                                  'Discount(%)',
+                                                  style: TextStyle(
+                                                    color: Color(0xff5654a2),
+                                                  ),
+                                                ),
+                                                Text(
+                                                  '0%',
+                                                  style: TextStyle(
+                                                    fontWeight: FontWeight.w600,
+                                                    fontSize: 18,
+                                                    color: Colors.grey,
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                            TextButton(
+                                              onPressed: () {},
+                                              child: const Text(
+                                                'RESET',
+                                                style: TextStyle(
+                                                    color: Colors.red),
+                                              ),
+                                            ),
+                                            const Column(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.spaceAround,
+                                              children: [
+                                                Text(
+                                                  'Discount Per Item',
+                                                  style: TextStyle(
+                                                    color: Color(0xff5654a2),
+                                                  ),
+                                                ),
+                                                Text(
+                                                  '0.00',
+                                                  style: TextStyle(
+                                                    fontWeight: FontWeight.w600,
+                                                    fontSize: 18,
+                                                    color: Colors.grey,
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.only(top: 8),
+                                    child: Container(
+                                      width: width,
+                                      height: height / 13,
+                                      decoration: BoxDecoration(
+                                        color: Colors.white,
+                                        borderRadius: const BorderRadius.all(
+                                          Radius.circular(6),
+                                        ),
+                                        boxShadow: [
+                                          BoxShadow(
+                                            color: Colors.grey.withOpacity(0.2),
+                                            offset: const Offset(0, 2),
+                                            blurRadius: 4,
+                                            spreadRadius: 2,
+                                          ),
+                                        ],
+                                      ),
+                                      child: Column(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceAround,
+                                        children: [
+                                          const Text(
+                                            'Free or Gift (Price 0)',
+                                            style: TextStyle(
+                                              color: Color(0xff5654a2),
+                                            ),
+                                          ),
+                                          Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceAround,
+                                            children: [
+                                              Row(
+                                                children: [
+                                                  Checkbox(
+                                                    activeColor:
+                                                        const Color(0xff5654a2),
+                                                    value: free,
+                                                    onChanged: (value) {
+                                                      setSState(() {
+                                                        free = value!;
+                                                      });
+                                                    },
+                                                  ),
+                                                  const Text(
+                                                    'Give as Free',
+                                                    style: TextStyle(
+                                                        fontWeight:
+                                                            FontWeight.w600),
+                                                  ),
+                                                ],
+                                              ),
+                                              Row(
+                                                children: [
+                                                  Checkbox(
+                                                    activeColor:
+                                                        const Color(0xff5654a2),
+                                                    value: gift,
+                                                    onChanged: (value) {
+                                                      setSState(() {
+                                                        gift = value!;
+                                                      });
+                                                    },
+                                                  ),
+                                                  const Text(
+                                                    'Give as Gift',
+                                                    style: TextStyle(
+                                                        fontWeight:
+                                                            FontWeight.w600),
+                                                  ),
+                                                ],
+                                              ),
+                                            ],
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                ],
                               ),
-                            ],
-                          ),
-                        ),
+                            ),
+                          );
+                        },
                       );
                     },
                     child: const ListTile(
@@ -114,30 +437,380 @@ class _CounterScreenState extends State<CounterScreen> {
                     width: width,
                     color: Colors.black,
                   ),
-                  const ListTile(
-                    title: Text(
-                      "Pan",
-                      style: TextStyle(fontSize: 18),
-                    ),
-                    subtitle: Row(
-                      children: [
-                        Text(
-                          '1 × ',
-                          style: TextStyle(fontSize: 14, color: Colors.green),
-                        ),
-                        Text(
-                          '100',
-                          style: TextStyle(fontSize: 14, color: Colors.black),
-                        ),
-                        Spacer(),
-                        Text(
-                          '100',
-                          style: TextStyle(
-                              fontSize: 14,
-                              color: Colors.black,
-                              fontWeight: FontWeight.w600),
-                        ),
-                      ],
+                  GestureDetector(
+                    onTap: () {
+                      showModalBottomSheet(
+                        useSafeArea: true,
+                        context: context,
+                        builder: (c) {
+                          return StatefulBuilder(
+                            builder: (BuildContext context, setSState) =>
+                                Container(
+                              color: Colors.grey.shade300,
+                              child: Column(
+                                children: [
+                                  Container(
+                                    height: height / 17,
+                                    width: width,
+                                    decoration: BoxDecoration(
+                                      color: Colors.white,
+                                      borderRadius: const BorderRadius.all(
+                                        Radius.circular(6),
+                                      ),
+                                      boxShadow: [
+                                        BoxShadow(
+                                          color: Colors.grey.withOpacity(0.2),
+                                          offset: const Offset(0, 2),
+                                          blurRadius: 4,
+                                          spreadRadius: 2,
+                                        ),
+                                      ],
+                                    ),
+                                    child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceAround,
+                                      children: [
+                                        ElevatedButton(
+                                          onPressed: () {},
+                                          style: const ButtonStyle(
+                                            backgroundColor:
+                                                MaterialStatePropertyAll(
+                                              Colors.red,
+                                            ),
+                                          ),
+                                          child: const Text(
+                                            'REMOVE',
+                                            style: TextStyle(
+                                              color: Colors.white,
+                                            ),
+                                          ),
+                                        ),
+                                        const Text(
+                                          'PAN',
+                                          style: TextStyle(
+                                            color: Color(0xff5654a2),
+                                            fontWeight: FontWeight.w600,
+                                            fontSize: 20,
+                                          ),
+                                        ),
+                                        ElevatedButton(
+                                          onPressed: () {},
+                                          style: const ButtonStyle(
+                                            backgroundColor:
+                                                MaterialStatePropertyAll(
+                                              Colors.green,
+                                            ),
+                                          ),
+                                          child: const Text(
+                                            'UPDATE',
+                                            style: TextStyle(
+                                              color: Colors.white,
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.only(top: 8),
+                                    child: Container(
+                                      width: width,
+                                      height: height / 15,
+                                      decoration: BoxDecoration(
+                                        color: Colors.white,
+                                        borderRadius: const BorderRadius.all(
+                                          Radius.circular(6),
+                                        ),
+                                        boxShadow: [
+                                          BoxShadow(
+                                            color: Colors.grey.withOpacity(0.2),
+                                            offset: const Offset(0, 2),
+                                            blurRadius: 4,
+                                            spreadRadius: 2,
+                                          ),
+                                        ],
+                                      ),
+                                      child: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceAround,
+                                        children: [
+                                          IconButton(
+                                            onPressed: () {
+                                              if (itemCount > 0) {
+                                                setSState(() {
+                                                  itemCount = itemCount - 1;
+                                                });
+                                              }
+                                            },
+                                            icon: const Icon(
+                                              CupertinoIcons.minus,
+                                              color: Color(0xff5654a2),
+                                              size: 25,
+                                            ),
+                                          ),
+                                          Container(
+                                            height: 30,
+                                            width: 80,
+                                            decoration: BoxDecoration(
+                                              border: Border.all(
+                                                color: const Color(0xff5654a2),
+                                              ),
+                                              borderRadius:
+                                                  const BorderRadius.all(
+                                                Radius.circular(5),
+                                              ),
+                                            ),
+                                            child: Center(
+                                              child: Text('$itemCount'),
+                                            ),
+                                          ),
+                                          IconButton(
+                                            onPressed: () {
+                                              setSState(() {
+                                                itemCount = itemCount + 1;
+                                              });
+                                            },
+                                            icon: const Icon(
+                                              CupertinoIcons.plus,
+                                              color: Color(0xff5654a2),
+                                              size: 25,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.only(top: 8),
+                                    child: Container(
+                                      width: width,
+                                      height: height / 13,
+                                      decoration: BoxDecoration(
+                                        color: Colors.white,
+                                        borderRadius: const BorderRadius.all(
+                                          Radius.circular(6),
+                                        ),
+                                        boxShadow: [
+                                          BoxShadow(
+                                            color: Colors.grey.withOpacity(0.2),
+                                            offset: const Offset(0, 2),
+                                            blurRadius: 4,
+                                            spreadRadius: 2,
+                                          ),
+                                        ],
+                                      ),
+                                      child: const Column(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceAround,
+                                        children: [
+                                          Text(
+                                            'Enter Price',
+                                            style: TextStyle(
+                                              color: Color(0xff5654a2),
+                                            ),
+                                          ),
+                                          Text(
+                                            '100',
+                                            style: TextStyle(
+                                              fontWeight: FontWeight.w600,
+                                              fontSize: 18,
+                                              color: Colors.grey,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.only(top: 8),
+                                    child: Container(
+                                      width: width,
+                                      height: height / 17,
+                                      decoration: BoxDecoration(
+                                        color: Colors.white,
+                                        borderRadius: const BorderRadius.all(
+                                          Radius.circular(6),
+                                        ),
+                                        boxShadow: [
+                                          BoxShadow(
+                                            color: Colors.grey.withOpacity(0.2),
+                                            offset: const Offset(0, 2),
+                                            blurRadius: 4,
+                                            spreadRadius: 2,
+                                          ),
+                                        ],
+                                      ),
+                                      child: Padding(
+                                        padding: const EdgeInsets.only(
+                                            left: 28, right: 15),
+                                        child: Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceAround,
+                                          children: [
+                                            const Column(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.spaceAround,
+                                              children: [
+                                                Text(
+                                                  'Discount(%)',
+                                                  style: TextStyle(
+                                                    color: Color(0xff5654a2),
+                                                  ),
+                                                ),
+                                                Text(
+                                                  '0%',
+                                                  style: TextStyle(
+                                                    fontWeight: FontWeight.w600,
+                                                    fontSize: 18,
+                                                    color: Colors.grey,
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                            TextButton(
+                                              onPressed: () {},
+                                              child: const Text(
+                                                'RESET',
+                                                style: TextStyle(
+                                                    color: Colors.red),
+                                              ),
+                                            ),
+                                            const Column(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.spaceAround,
+                                              children: [
+                                                Text(
+                                                  'Discount Per Item',
+                                                  style: TextStyle(
+                                                    color: Color(0xff5654a2),
+                                                  ),
+                                                ),
+                                                Text(
+                                                  '0.00',
+                                                  style: TextStyle(
+                                                    fontWeight: FontWeight.w600,
+                                                    fontSize: 18,
+                                                    color: Colors.grey,
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.only(top: 8),
+                                    child: Container(
+                                      width: width,
+                                      height: height / 13,
+                                      decoration: BoxDecoration(
+                                        color: Colors.white,
+                                        borderRadius: const BorderRadius.all(
+                                          Radius.circular(6),
+                                        ),
+                                        boxShadow: [
+                                          BoxShadow(
+                                            color: Colors.grey.withOpacity(0.2),
+                                            offset: const Offset(0, 2),
+                                            blurRadius: 4,
+                                            spreadRadius: 2,
+                                          ),
+                                        ],
+                                      ),
+                                      child: Column(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceAround,
+                                        children: [
+                                          const Text(
+                                            'Free or Gift (Price 0)',
+                                            style: TextStyle(
+                                              color: Color(0xff5654a2),
+                                            ),
+                                          ),
+                                          Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceAround,
+                                            children: [
+                                              Row(
+                                                children: [
+                                                  Checkbox(
+                                                    activeColor:
+                                                        const Color(0xff5654a2),
+                                                    value: free,
+                                                    onChanged: (value) {
+                                                      setSState(() {
+                                                        free = value!;
+                                                      });
+                                                    },
+                                                  ),
+                                                  const Text(
+                                                    'Give as Free',
+                                                    style: TextStyle(
+                                                        fontWeight:
+                                                            FontWeight.w600),
+                                                  ),
+                                                ],
+                                              ),
+                                              Row(
+                                                children: [
+                                                  Checkbox(
+                                                    activeColor:
+                                                        const Color(0xff5654a2),
+                                                    value: gift,
+                                                    onChanged: (value) {
+                                                      setSState(() {
+                                                        gift = value!;
+                                                      });
+                                                    },
+                                                  ),
+                                                  const Text(
+                                                    'Give as Gift',
+                                                    style: TextStyle(
+                                                        fontWeight:
+                                                            FontWeight.w600),
+                                                  ),
+                                                ],
+                                              ),
+                                            ],
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          );
+                        },
+                      );
+                    },
+                    child: const ListTile(
+                      title: Text(
+                        "Pan",
+                        style: TextStyle(fontSize: 18),
+                      ),
+                      subtitle: Row(
+                        children: [
+                          Text(
+                            '1 × ',
+                            style: TextStyle(fontSize: 14, color: Colors.green),
+                          ),
+                          Text(
+                            '100',
+                            style: TextStyle(fontSize: 14, color: Colors.black),
+                          ),
+                          Spacer(),
+                          Text(
+                            '100',
+                            style: TextStyle(
+                                fontSize: 14,
+                                color: Colors.black,
+                                fontWeight: FontWeight.w600),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ],
@@ -468,19 +1141,3 @@ class _CustomBottomSheetState extends State<CustomBottomSheet> {
     );
   }
 }
-
-// void _openBottomSheet(BuildContext context) {
-//   showBottomSheet(
-//     backgroundColor: Colors.white,
-//     context: context,
-//     builder: (BuildContext context) {
-//       return Container(
-//         color: Colors.white,
-//         height: 600,
-//         child: const Column(
-//           children: [],
-//         ),
-//       );
-//     },
-//   );
-// }
