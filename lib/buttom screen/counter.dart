@@ -823,25 +823,28 @@ class _CounterScreenState extends State<CounterScreen> {
           ),
           Padding(
             padding: const EdgeInsets.only(left: 8, right: 8, top: 8),
-            child: Container(
-              decoration: BoxDecoration(
-                borderRadius: const BorderRadius.all(Radius.circular(8)),
-                color: Colors.white,
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.grey.withOpacity(0.2),
-                    offset: const Offset(0, 2),
-                    blurRadius: 4,
-                    spreadRadius: 2,
+            child: GestureDetector(
+              onTap: () {},
+              child: Container(
+                decoration: BoxDecoration(
+                  borderRadius: const BorderRadius.all(Radius.circular(8)),
+                  color: Colors.white,
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.2),
+                      offset: const Offset(0, 2),
+                      blurRadius: 4,
+                      spreadRadius: 2,
+                    ),
+                  ],
+                ),
+                width: width,
+                height: height / 13,
+                child: const Center(
+                  child: Text(
+                    'ADD NEW ITEM',
+                    style: TextStyle(color: Color(0xff5654a2), fontSize: 20),
                   ),
-                ],
-              ),
-              width: width,
-              height: height / 13,
-              child: const Center(
-                child: Text(
-                  'ADD NEW ITEM',
-                  style: TextStyle(color: Color(0xff5654a2), fontSize: 20),
                 ),
               ),
             ),
