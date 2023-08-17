@@ -40,6 +40,7 @@ class _CounterScreenState extends State<CounterScreen> {
           Padding(
             padding: const EdgeInsets.only(left: 8, right: 8, top: 8),
             child: Container(
+              width: width,
               decoration: BoxDecoration(
                 borderRadius: const BorderRadius.all(Radius.circular(8)),
                 color: Colors.white,
@@ -52,8 +53,6 @@ class _CounterScreenState extends State<CounterScreen> {
                   ),
                 ],
               ),
-              width: width,
-              height: height / 5.4,
               child: Column(
                 children: [
                   GestureDetector(
@@ -865,7 +864,6 @@ class _CounterScreenState extends State<CounterScreen> {
                 ],
               ),
               width: width,
-              height: height / 5.5,
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Column(
@@ -910,7 +908,9 @@ class _CounterScreenState extends State<CounterScreen> {
                         ),
                       ],
                     ),
-                    const Spacer(),
+                    const SizedBox(
+                      height: 20,
+                    ),
                     const Row(
                       children: [
                         Text(
@@ -931,7 +931,9 @@ class _CounterScreenState extends State<CounterScreen> {
                         ),
                       ],
                     ),
-                    const Spacer(),
+                    const SizedBox(
+                      height: 20,
+                    ),
                     const Row(
                       children: [
                         Text(
@@ -953,7 +955,9 @@ class _CounterScreenState extends State<CounterScreen> {
                         ),
                       ],
                     ),
-                    const Spacer(),
+                    const SizedBox(
+                      height: 20,
+                    ),
                   ],
                 ),
               ),

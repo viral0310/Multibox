@@ -12,17 +12,17 @@ final List<Map<String, dynamic>> cardData = [
   {
     'icon': 'assets/images/girl.png',
     'title': 'Pan',
-    'price': 'INR100',
+    'price': '100',
   },
   {
     'icon': 'assets/images/girl.png',
     'title': 'Cold Drink',
-    'price': 'INR100',
+    'price': '100',
   },
   {
     'icon': 'assets/images/girl.png',
     'title': 'Wafer',
-    'price': 'INR100',
+    'price': '100',
   },
 ];
 
@@ -114,7 +114,6 @@ class _InventoryScreenState extends State<InventoryScreen> {
                             const EdgeInsets.only(top: 8, left: 8, right: 8),
                         child: Container(
                           width: MediaQuery.of(context).size.width,
-                          height: MediaQuery.of(context).size.height / 7.2,
                           decoration: BoxDecoration(
                             color: Colors.white,
                             boxShadow: [
@@ -151,7 +150,7 @@ class _InventoryScreenState extends State<InventoryScreen> {
                                     children: [
                                       Text(cardData[index]['title']),
                                       Text(
-                                        cardData[index]['price'],
+                                        '₹${cardData[index]['price']}',
                                         style: const TextStyle(
                                             color: Color(0xff5654a2),
                                             fontSize: 18),
@@ -167,21 +166,26 @@ class _InventoryScreenState extends State<InventoryScreen> {
                                 ),
                               ),
                               Padding(
-                                padding: const EdgeInsets.only(left: 8),
+                                padding:
+                                    const EdgeInsets.only(left: 8, bottom: 8),
                                 child: Container(
                                   height:
                                       MediaQuery.of(context).size.height / 32,
                                   width: MediaQuery.of(context).size.width / 5,
                                   decoration: const BoxDecoration(
                                     color: Color(0xff5654a2),
+                                    borderRadius: BorderRadius.all(
+                                      Radius.circular(5),
+                                    ),
                                   ),
                                   child: Row(
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
                                       Text(
-                                        '<${cardData[index]['price']}>',
+                                        '₹${cardData[index]['price']}',
                                         style: const TextStyle(
-                                            color: Colors.white),
+                                          color: Colors.white,
+                                        ),
                                       ),
                                     ],
                                   ),

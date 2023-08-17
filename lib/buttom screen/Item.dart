@@ -14,17 +14,17 @@ class _ItemScreenState extends State<ItemScreen> {
     {
       'icon': 'assets/images/girl.png',
       'title': 'Pan',
-      'price': 'INR100',
+      'price': '100',
     },
     {
       'icon': 'assets/images/girl.png',
       'title': 'Cold Drink',
-      'price': 'INR100',
+      'price': '100',
     },
     {
       'icon': 'assets/images/girl.png',
       'title': 'Wafer',
-      'price': 'INR100',
+      'price': '100',
     },
     {'type': 'add'},
   ];
@@ -109,9 +109,12 @@ class _ItemScreenState extends State<ItemScreen> {
                           onTap: () {
                             Navigator.of(context).pushNamed('/InventoryScreen');
                           },
-                          child: const Card(
+                          child: Card(
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10),
+                            ),
                             elevation: 4,
-                            child: Padding(
+                            child: const Padding(
                               padding: EdgeInsets.all(8.0),
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -214,26 +217,37 @@ class CardWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(10),
+      ),
       elevation: 4,
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Container(
-              height: 50,
-              width: 50,
-              decoration: BoxDecoration(
-                image:
-                    DecorationImage(image: AssetImage(icon), fit: BoxFit.fill),
+              alignment: Alignment.centerRight,
+              child: const Icon(
+                Icons.favorite_border,
+                color: Colors.red,
               ),
             ),
-            const SizedBox(height: 8),
-            Text(title),
-            const SizedBox(height: 30),
+            InkWell(
+              child: Container(
+                margin: const EdgeInsets.all(10),
+                child: Image.asset(
+                  icon,
+                  height: 70,
+                  width: 70,
+                ),
+              ),
+            ),
+            Container(
+              padding: const EdgeInsets.only(bottom: 8),
+              child: Text(title),
+            ),
             Text(
-              price,
+              '₹$price',
               style: const TextStyle(
                 color: Color(0xff5654a2),
               ),
