@@ -124,8 +124,9 @@ class _InventoryScreenState extends State<InventoryScreen> {
                                 spreadRadius: 1,
                               ),
                             ],
-                            borderRadius:
-                                const BorderRadius.all(Radius.circular(8)),
+                            borderRadius: const BorderRadius.all(
+                              Radius.circular(8),
+                            ),
                           ),
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.start,
@@ -156,7 +157,7 @@ class _InventoryScreenState extends State<InventoryScreen> {
                                             fontSize: 18),
                                       ),
                                     ],
-                                  )
+                                  ),
                                 ],
                               ),
                               const Padding(

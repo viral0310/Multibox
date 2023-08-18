@@ -1010,6 +1010,8 @@ class _CounterScreenState extends State<CounterScreen> {
             child: GestureDetector(
               onTap: () {
                 showModalBottomSheet(
+                  useSafeArea: true,
+                  isScrollControlled: true,
                   context: context,
                   builder: (BuildContext context) {
                     return CustomBottomSheet();
@@ -1147,6 +1149,184 @@ class _CustomBottomSheetState extends State<CustomBottomSheet> {
               ),
             ),
           ),
+          Container(
+            alignment: Alignment.center,
+            child: Column(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(
+                      left: 8, right: 8, top: 8, bottom: 4),
+                  child: Row(
+                    children: [
+                      Expanded(
+                        child: Padding(
+                          padding: const EdgeInsets.only(left: 8, right: 4),
+                          child: TextFormField(
+                            textAlign: TextAlign.center,
+                            style: const TextStyle(color: Colors.black),
+                            decoration: const InputDecoration(
+                              hintText: '+91',
+                            ),
+                          ),
+                        ),
+                      ),
+                      Expanded(
+                        flex: 4,
+                        child: Padding(
+                          padding: const EdgeInsets.only(right: 8, left: 4),
+                          child: TextFormField(
+                            textAlign: TextAlign.start,
+                            style: const TextStyle(color: Colors.black),
+                            decoration: const InputDecoration(
+                              hintText: 'Mobile Number',
+                            ),
+                          ),
+                        ),
+                      ),
+                      Container(
+                        decoration: const BoxDecoration(
+                          borderRadius: BorderRadius.all(
+                            Radius.circular(5),
+                          ),
+                          color: Color(0xff5654a2),
+                        ),
+                        child: TextButton(
+                          onPressed: () {},
+                          child: const Icon(
+                            Icons.search_rounded,
+                            color: Colors.white,
+                            size: 28,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                Row(
+                  children: [
+                    Expanded(
+                      flex: 4,
+                      child: Padding(
+                        padding: const EdgeInsets.only(
+                            right: 16, left: 16, bottom: 16),
+                        child: TextFormField(
+                          cursorColor: const Color(0xff5654a2),
+                          textAlign: TextAlign.start,
+                          style: const TextStyle(color: Colors.black),
+                          decoration: const InputDecoration(
+                            hintText: 'Customer name',
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                Container(
+                  height: 30,
+                  width: MediaQuery.of(context).size.width,
+                  decoration: BoxDecoration(color: Colors.grey.shade400),
+                  child: const Center(
+                    child: Text(
+                      'SELECT PAYMENT MODE',
+                      style: TextStyle(
+                        color: Color(0xff5654a2),
+                        fontSize: 18,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                  ),
+                ),
+                Column(
+                  children: [
+                    Row(
+                      children: [
+                        Expanded(
+                          child: Padding(
+                            padding: const EdgeInsets.only(
+                                left: 16, top: 8, right: 4),
+                            child: GestureDetector(
+                              onTap: () {},
+                              child: Container(
+                                height: MediaQuery.of(context).size.height / 9,
+                                width: MediaQuery.of(context).size.width,
+                                decoration: BoxDecoration(
+                                  borderRadius: const BorderRadius.all(
+                                      Radius.circular(10)),
+                                  color: Colors.white,
+                                  boxShadow: [
+                                    BoxShadow(
+                                      color: Colors.black.withOpacity(0.2),
+                                      offset: const Offset(0, 2),
+                                      blurRadius: 4,
+                                      spreadRadius: 1,
+                                    ),
+                                  ],
+                                ),
+                                child: const Column(
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Text(
+                                      'Cash',
+                                      style: TextStyle(
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.w600,
+                                        color: Color(0xff5654a2),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                        Expanded(
+                          child: Padding(
+                            padding: const EdgeInsets.only(
+                                left: 4, top: 8, right: 16),
+                            child: GestureDetector(
+                              onTap: () {},
+                              child: Container(
+                                height: MediaQuery.of(context).size.height / 9,
+                                width: MediaQuery.of(context).size.width,
+                                decoration: BoxDecoration(
+                                  borderRadius: const BorderRadius.all(
+                                      Radius.circular(10)),
+                                  color: Colors.white,
+                                  boxShadow: [
+                                    BoxShadow(
+                                      color: Colors.black.withOpacity(0.2),
+                                      offset: const Offset(0, 2),
+                                      blurRadius: 4,
+                                      spreadRadius: 1,
+                                    ),
+                                  ],
+                                ),
+                                child: const Column(
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Text(
+                                      'Debit Card',
+                                      style: TextStyle(
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.w600,
+                                        color: Color(0xff5654a2),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                )
+              ],
+            ),
+          )
         ],
       ),
     );
