@@ -84,7 +84,7 @@ class _QuickScreenState extends State<QuickScreen> {
                   ),
                   Container(
                     margin: EdgeInsets.fromLTRB(
-                        0 * fem, 0 * fem, 90 * fem, 26.75 * fem),
+                        0 * fem, 0 * fem, 90 * fem, 18 * fem),
                     child: Text(
                       'Tell us about your business',
                       style: SafeGoogleFont(
@@ -185,9 +185,7 @@ class _QuickScreenState extends State<QuickScreen> {
                     ),
                     prefixIcon: Checkbox(
                       shape: const CircleBorder(),
-                      fillColor: MaterialStateProperty.all(
-                        const Color(0xff5654a2),
-                      ),
+                      activeColor: const Color(0xff5654a2),
                       value: _isButtonEnabled,
                       onChanged: (value) {},
                     ),

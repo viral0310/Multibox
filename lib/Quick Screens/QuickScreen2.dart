@@ -165,9 +165,7 @@ class _QuickScreen2State extends State<QuickScreen2> {
                     ),
                     prefixIcon: Checkbox(
                       shape: const CircleBorder(),
-                      fillColor: MaterialStateProperty.all(
-                        const Color(0xff5654a2),
-                      ),
+                      activeColor: const Color(0xff5654a2),
                       value: _isButtonEnabled,
                       onChanged: (value) {},
                     ),
@@ -230,9 +228,7 @@ class _QuickScreen2State extends State<QuickScreen2> {
                     ),
                     prefixIcon: Checkbox(
                       shape: const CircleBorder(),
-                      fillColor: MaterialStateProperty.all(
-                        const Color(0xff5654a2),
-                      ),
+                      activeColor: const Color(0xff5654a2),
                       value: _isButton2Enabled,
                       onChanged: (value) {},
                     ),
@@ -295,9 +291,7 @@ class _QuickScreen2State extends State<QuickScreen2> {
                     ),
                     prefixIcon: Checkbox(
                       shape: const CircleBorder(),
-                      fillColor: MaterialStateProperty.all(
-                        const Color(0xff5654a2),
-                      ),
+                      activeColor: const Color(0xff5654a2),
                       value: _isButton3Enabled,
                       onChanged: (value) {},
                     ),
