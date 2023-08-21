@@ -206,9 +206,7 @@ class _AddItemScreenState extends State<AddItemScreen> {
                     ),
                     prefixIcon: Checkbox(
                       shape: const CircleBorder(),
-                      fillColor: MaterialStateProperty.all(
-                        const Color(0xff5654a2),
-                      ),
+                      activeColor: const Color(0xff5654a2),
                       value: _isButtonEnabled,
                       onChanged: (value) {},
                     ),
@@ -247,9 +245,7 @@ class _AddItemScreenState extends State<AddItemScreen> {
                     children: [
                       Checkbox(
                         shape: const CircleBorder(),
-                        fillColor: MaterialStateProperty.all(
-                          const Color(0xff5654a2),
-                        ),
+                        activeColor: const Color(0xff5654a2),
                         value: category,
                         onChanged: (value) {},
                       ),
@@ -370,137 +366,137 @@ class _AddItemScreenState extends State<AddItemScreen> {
               child: TabBarView(
                 physics: const NeverScrollableScrollPhysics(),
                 children: [
-                  Column(
-                    children: [
-                      Container(
-                        decoration: BoxDecoration(
-                          borderRadius:
-                              const BorderRadius.all(Radius.circular(8)),
-                          color: Colors.white,
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.grey.withOpacity(0.2),
-                              offset: const Offset(0, 2),
-                              blurRadius: 4,
-                              spreadRadius: 2,
-                            ),
-                          ],
-                        ),
-                        width: width,
-                        height: height / 14,
-                        child: Padding(
-                          padding: const EdgeInsets.only(top: 12),
-                          child: TextField(
-                            controller: sellingPriceTab1EditingController,
-                            keyboardType: TextInputType.phone,
-                            cursorColor: const Color(0xff5654a2),
-                            style: const TextStyle(
-                              color: Colors.black,
-                              fontSize: 18,
-                              fontFamily: 'Montserrat',
-                              fontWeight: FontWeight.w400,
-                            ),
-                            decoration: InputDecoration(
-                              enabledBorder: const OutlineInputBorder(
-                                  borderSide:
-                                      BorderSide(color: Colors.transparent)),
-                              disabledBorder: const OutlineInputBorder(
-                                borderSide: BorderSide(
-                                  color: Colors.transparent,
-                                ),
+                  SingleChildScrollView(
+                    child: Column(
+                      children: [
+                        Container(
+                          decoration: BoxDecoration(
+                            borderRadius:
+                                const BorderRadius.all(Radius.circular(8)),
+                            color: Colors.white,
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.grey.withOpacity(0.2),
+                                offset: const Offset(0, 2),
+                                blurRadius: 4,
+                                spreadRadius: 2,
                               ),
-                              border: OutlineInputBorder(
-                                borderSide:
-                                    const BorderSide(color: Colors.transparent),
-                                borderRadius: BorderRadius.circular(8.0),
-                              ),
-                              focusedBorder: const OutlineInputBorder(
-                                borderSide:
-                                    BorderSide(color: Colors.transparent),
-                              ),
-                              floatingLabelBehavior:
-                                  FloatingLabelBehavior.always,
-                              contentPadding:
-                                  const EdgeInsets.only(top: 10, bottom: 10),
-                              label: const Text(
-                                'Selling Price',
-                                style: TextStyle(
-                                  color: Color(0xFF979797),
-                                  fontSize: 18,
-                                  fontFamily: 'Montserrat',
-                                  fontWeight: FontWeight.w500,
-                                ),
-                              ),
-                              hintText: "0.00",
-                              hintStyle: const TextStyle(
-                                  fontSize: 16, color: Colors.grey),
-                              prefixIcon: Checkbox(
-                                shape: const CircleBorder(),
-                                fillColor: MaterialStateProperty.all(
-                                  const Color(0xff5654a2),
-                                ),
-                                value: _isButton4Enabled,
-                                onChanged: (value) {},
-                              ),
-                            ),
+                            ],
                           ),
-                        ),
-                      ),
-                      const SizedBox(
-                        height: 15,
-                      ),
-                      InkWell(
-                        onTap: _pickImage,
-                        child: CircleAvatar(
-                          backgroundColor: const Color(0xff9c9acb),
-                          backgroundImage:
-                              _image != null ? FileImage(_image!) : null,
-                          radius: 50,
-                          child: (_image != null)
-                              ? const Text("")
-                              : const Text(
-                                  "ADD IMAGE",
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 16,
+                          width: width,
+                          height: height / 14,
+                          child: Padding(
+                            padding: const EdgeInsets.only(top: 12),
+                            child: TextField(
+                              controller: sellingPriceTab1EditingController,
+                              keyboardType: TextInputType.phone,
+                              cursorColor: const Color(0xff5654a2),
+                              style: const TextStyle(
+                                color: Colors.black,
+                                fontSize: 18,
+                                fontFamily: 'Montserrat',
+                                fontWeight: FontWeight.w400,
+                              ),
+                              decoration: InputDecoration(
+                                enabledBorder: const OutlineInputBorder(
+                                    borderSide:
+                                        BorderSide(color: Colors.transparent)),
+                                disabledBorder: const OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                    color: Colors.transparent,
                                   ),
                                 ),
-                        ),
-                      ),
-                      const SizedBox(
-                        height: 20,
-                      ),
-                      const Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Icon(
-                            Icons.help,
-                            color: Color(0xff5654a2),
-                          ),
-                          SizedBox(
-                            width: 15,
-                          ),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                "Pro Tip: Use advance mode for feature like",
-                                style: TextStyle(
-                                  color: Color(0xff5654a2),
+                                border: OutlineInputBorder(
+                                  borderSide: const BorderSide(
+                                      color: Colors.transparent),
+                                  borderRadius: BorderRadius.circular(8.0),
+                                ),
+                                focusedBorder: const OutlineInputBorder(
+                                  borderSide:
+                                      BorderSide(color: Colors.transparent),
+                                ),
+                                floatingLabelBehavior:
+                                    FloatingLabelBehavior.always,
+                                contentPadding:
+                                    const EdgeInsets.only(top: 10, bottom: 10),
+                                label: const Text(
+                                  'Selling Price',
+                                  style: TextStyle(
+                                    color: Color(0xFF979797),
+                                    fontSize: 18,
+                                    fontFamily: 'Montserrat',
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                                ),
+                                hintText: "0.00",
+                                hintStyle: const TextStyle(
+                                    fontSize: 16, color: Colors.grey),
+                                prefixIcon: Checkbox(
+                                  shape: const CircleBorder(),
+                                  activeColor: const Color(0xff5654a2),
+                                  value: _isButton4Enabled,
+                                  onChanged: (value) {},
                                 ),
                               ),
-                              Text(
-                                "Stock and Profit tracking",
-                                style: TextStyle(
-                                  color: Color(0xff5654a2),
+                            ),
+                          ),
+                        ),
+                        const SizedBox(
+                          height: 15,
+                        ),
+                        InkWell(
+                          onTap: _pickImage,
+                          child: CircleAvatar(
+                            backgroundColor: const Color(0xff9c9acb),
+                            backgroundImage:
+                                _image != null ? FileImage(_image!) : null,
+                            radius: 50,
+                            child: (_image != null)
+                                ? const Text("")
+                                : const Text(
+                                    "ADD IMAGE",
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 16,
+                                    ),
+                                  ),
+                          ),
+                        ),
+                        const SizedBox(
+                          height: 20,
+                        ),
+                        const Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Icon(
+                              Icons.help,
+                              color: Color(0xff5654a2),
+                            ),
+                            SizedBox(
+                              width: 15,
+                            ),
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  "Pro Tip: Use advance mode for feature like",
+                                  style: TextStyle(
+                                    color: Color(0xff5654a2),
+                                  ),
                                 ),
-                              )
-                            ],
-                          )
-                        ],
-                      )
-                    ],
+                                Text(
+                                  "Stock and Profit tracking",
+                                  style: TextStyle(
+                                    color: Color(0xff5654a2),
+                                  ),
+                                )
+                              ],
+                            )
+                          ],
+                        )
+                      ],
+                    ),
                   ),
                   const Center(
                     child: Text('Tab 2 content'),

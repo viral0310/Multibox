@@ -45,7 +45,6 @@ class _BottomNavigationState extends State<BottomNavigation> {
           selectedIndex: startPage,
           onDestinationSelected: (index) => setState(() => startPage = index),
           height: 60,
-          //indicatorShape: const CircleBorder(),
           indicatorColor: const Color(0xffa164a9),
           backgroundColor: const Color(0xff5654a2),
           elevation: double.maxFinite,
