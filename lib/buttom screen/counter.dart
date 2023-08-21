@@ -823,7 +823,9 @@ class _CounterScreenState extends State<CounterScreen> {
           Padding(
             padding: const EdgeInsets.only(left: 8, right: 8, top: 8),
             child: GestureDetector(
-              onTap: () {},
+              onTap: () {
+                Navigator.of(context).pushNamed('/ItemScreen');
+              },
               child: Container(
                 decoration: BoxDecoration(
                   borderRadius: const BorderRadius.all(Radius.circular(8)),
