@@ -325,7 +325,6 @@ class _CounterScreenState extends State<CounterScreen> {
                                     padding: const EdgeInsets.only(top: 8),
                                     child: Container(
                                       width: width,
-                                      height: height / 13,
                                       decoration: BoxDecoration(
                                         color: Colors.white,
                                         borderRadius: const BorderRadius.all(
@@ -707,7 +706,6 @@ class _CounterScreenState extends State<CounterScreen> {
                                     padding: const EdgeInsets.only(top: 8),
                                     child: Container(
                                       width: width,
-                                      height: height / 13,
                                       decoration: BoxDecoration(
                                         color: Colors.white,
                                         borderRadius: const BorderRadius.all(
@@ -1336,7 +1334,8 @@ class _CustomBottomSheetState extends State<CustomBottomSheet> {
                                 width: MediaQuery.of(context).size.width,
                                 decoration: BoxDecoration(
                                   borderRadius: const BorderRadius.all(
-                                      Radius.circular(10)),
+                                    Radius.circular(10),
+                                  ),
                                   color: Colors.white,
                                   boxShadow: [
                                     BoxShadow(
