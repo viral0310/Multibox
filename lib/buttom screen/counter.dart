@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:multi_purpose_app/buttom%20screen/Item.dart';
 
 import '../Screen/HomeScreens/DrawerScreens.dart';
 
@@ -824,7 +826,11 @@ class _CounterScreenState extends State<CounterScreen> {
             padding: const EdgeInsets.only(left: 8, right: 8, top: 8),
             child: GestureDetector(
               onTap: () {
-                Navigator.of(context).pushNamed('/ItemScreen');
+                // Navigator.of(context).pushNamed('/ItemScreen');
+                setState(() {
+                  // startPage[]
+                  // Get.off(() => ItemScreen());
+                });
               },
               child: Container(
                 decoration: BoxDecoration(
@@ -913,18 +919,95 @@ class _CounterScreenState extends State<CounterScreen> {
                     const SizedBox(
                       height: 20,
                     ),
-                    const Row(
+                    Row(
                       children: [
-                        Text(
-                          'ADD TAX',
-                          style: TextStyle(
-                            color: Color(0xff5654a2),
-                            fontSize: 14,
-                            decoration: TextDecoration.underline,
+                        InkWell(
+                          onTap: () {
+                            showModalBottomSheet(
+                              context: context,
+                              builder: (context) {
+                                return Column(
+                                  children: [
+                                    Container(
+                                      width: width,
+                                      height: height / 17,
+                                      decoration: BoxDecoration(
+                                        color: Colors.white,
+                                        borderRadius: const BorderRadius.only(
+                                          bottomLeft: Radius.circular(8),
+                                          bottomRight: Radius.circular(8),
+                                        ),
+                                        boxShadow: [
+                                          BoxShadow(
+                                            color: Colors.grey.withOpacity(0.2),
+                                            offset: const Offset(0, 2),
+                                            blurRadius: 4,
+                                            spreadRadius: 2,
+                                          ),
+                                        ],
+                                      ),
+                                      child: Padding(
+                                        padding: const EdgeInsets.all(8.0),
+                                        child: Row(
+                                          children: [
+                                            Container(
+                                              decoration: BoxDecoration(
+                                                  color: Colors.grey.shade300),
+                                              child: IconButton(
+                                                onPressed: () {
+                                                  Navigator.of(context).pop();
+                                                },
+                                                icon: const Icon(
+                                                  Icons.close,
+                                                  color: Color(0xff5654a2),
+                                                ),
+                                              ),
+                                            ),
+                                            const Spacer(),
+                                            const Text(
+                                              'SELECT OR ENTER TEX',
+                                              style: TextStyle(
+                                                color: Color(0xff5654a2),
+                                                fontWeight: FontWeight.bold,
+                                                fontSize: 18,
+                                              ),
+                                            ),
+                                            const Spacer(),
+                                            ElevatedButton(
+                                              style: const ButtonStyle(
+                                                backgroundColor:
+                                                    MaterialStatePropertyAll(
+                                                  Colors.green,
+                                                ),
+                                              ),
+                                              onPressed: () {},
+                                              child: const Text(
+                                                'SAVE',
+                                                style: TextStyle(
+                                                  color: Colors.white,
+                                                ),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                );
+                              },
+                            );
+                          },
+                          child: const Text(
+                            'ADD TAX',
+                            style: TextStyle(
+                              color: Color(0xff5654a2),
+                              fontSize: 14,
+                              decoration: TextDecoration.underline,
+                            ),
                           ),
                         ),
-                        Spacer(),
-                        Text(
+                        const Spacer(),
+                        const Text(
                           '2 ITEMS | 2 UNITS',
                           style: TextStyle(
                             color: Colors.grey,
