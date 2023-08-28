@@ -1,5 +1,5 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 import '../../utils.dart';
 
@@ -23,14 +23,20 @@ class _VerifyScreenState extends State<VerifyScreen> {
 
   @override
   void dispose() {
-    _otpControllers.forEach((controller) => controller.dispose());
-    _otpFocusNodes.forEach((focusNode) => focusNode.dispose());
+    for (var controller in _otpControllers) {
+      controller.dispose();
+    }
+    for (var focusNode in _otpFocusNodes) {
+      focusNode.dispose();
+    }
     super.dispose();
   }
 
   void _submitOTP() {
     String otp = _otpControllers.map((controller) => controller.text).join();
-    print('OTP submitted: $otp');
+    if (kDebugMode) {
+      print('OTP submitted: $otp');
+    }
   }
 
   @override
