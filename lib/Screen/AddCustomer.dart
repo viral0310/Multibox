@@ -60,6 +60,7 @@ class _AddCustomerState extends State<AddCustomer> {
               child: Container(
                 decoration: BoxDecoration(
                   color: Colors.white,
+                  borderRadius: BorderRadius.circular(10),
                   boxShadow: [
                     BoxShadow(
                       color: Colors.grey.withOpacity(0.2),
@@ -269,6 +270,7 @@ class _AddCustomerState extends State<AddCustomer> {
               child: Container(
                 decoration: BoxDecoration(
                   color: Colors.white,
+                  borderRadius: BorderRadius.circular(10),
                   boxShadow: [
                     BoxShadow(
                       color: Colors.grey.withOpacity(0.2),
@@ -431,6 +433,7 @@ class _AddCustomerState extends State<AddCustomer> {
               child: Container(
                 decoration: BoxDecoration(
                   color: Colors.white,
+                  borderRadius: BorderRadius.circular(10),
                   boxShadow: [
                     BoxShadow(
                       color: Colors.grey.withOpacity(0.2),
