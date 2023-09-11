@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:math_expressions/math_expressions.dart';
 
 class QuickAddScreen extends StatefulWidget {
   const QuickAddScreen({super.key});
@@ -147,9 +146,7 @@ class _QuickAddScreenState extends State<QuickAddScreen> {
                     child: Column(
                       children: [
                         Checkbox(
-                          fillColor: MaterialStateProperty.all(
-                            const Color(0xff5654a2),
-                          ),
+                          activeColor: const Color(0xff5654a2),
                           value: _isButtonEnabled,
                           onChanged: (value) {
                             setState(() {
