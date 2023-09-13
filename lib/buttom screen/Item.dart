@@ -237,7 +237,7 @@ class CardWidget extends StatelessWidget {
                 margin: const EdgeInsets.all(10),
                 child: Image.asset(
                   icon,
-                  height: 70,
+                  height: 64,
                   width: 70,
                 ),
               ),
