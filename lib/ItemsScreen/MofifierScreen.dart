@@ -78,11 +78,11 @@ class _ModifierScreenState extends State<ModifierScreen> {
             onTap: () {
               Navigator.of(context).pop();
             },
-            child: const Padding(
-              padding: EdgeInsets.all(8.0),
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
               child: Row(
                 children: [
-                  Text(
+                  const Text(
                     'Save',
                     style: TextStyle(
                       color: Color(0xffffffff),
@@ -91,10 +91,17 @@ class _ModifierScreenState extends State<ModifierScreen> {
                       fontWeight: FontWeight.w500,
                     ),
                   ),
-                  Icon(
+                  const Icon(
                     Icons.check_circle,
                     color: Colors.white,
                     size: 25,
+                  ),
+                  IconButton(
+                    onPressed: () {},
+                    icon: const Icon(
+                      CupertinoIcons.search,
+                      color: Colors.white,
+                    ),
                   ),
                 ],
               ),
