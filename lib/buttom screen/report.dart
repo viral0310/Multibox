@@ -70,7 +70,9 @@ class _ReportScreenState extends State<ReportScreen> {
                 const SizedBox(height: 15),
                 const Text(
                   "No Report for select Date",
-                  style: TextStyle(color: Colors.grey),
+                  style: TextStyle(
+                    color: Colors.grey,
+                  ),
                 ),
               ],
             ),
