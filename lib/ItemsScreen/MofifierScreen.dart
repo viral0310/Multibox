@@ -273,7 +273,7 @@ class _ModifierScreenState extends State<ModifierScreen> {
             const SizedBox(
               height: 10,
             ),
-            IconButton(
+            CupertinoButton(
               onPressed: () {
                 setState(() {
                   textFieldCount++;
@@ -286,7 +286,7 @@ class _ModifierScreenState extends State<ModifierScreen> {
                   );
                 });
               },
-              icon: const Icon(
+              child: const Icon(
                 CupertinoIcons.plus_circle_fill,
                 color: Color(0xff5654a2),
                 size: 35,
